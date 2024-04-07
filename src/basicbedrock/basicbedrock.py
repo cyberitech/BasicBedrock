@@ -1,3 +1,12 @@
+"""
+Basic Bedrock Python API abstraction.
+Currently supports all text-modal foundation models in AWS Bedrock.
+Abstracts away the need to understand any of the model-specific response or request semantics.
+Simply pick a model, and invoke it with a prompt.
+If you with to specify k, p, temp, and max_token parameters, they will be applied on a best effort basis.
+not all models support all parameters.
+"""
+
 import json
 import boto3
 import warnings
@@ -8,18 +17,26 @@ from models import *
 
 class BasicBedrock(object):
     def __init__(self, session: boto3.session.Session = None, **kwargs):
+        """
+        Creates an instance of basic bedrock.
+        session param is optional.  If omitted, a default session will be used.
+        Right now, the only kwargs supported are a param dictionary.
+        Param dicts are in the format of {'top_p': float, 'top_k': int, 'temp': float, 'max_tokens': int}
+        :param session: the boto3 session to use for creating the basic bedrock instance
+        :param kwargs: kwargs used are in the format of {'top_p': float, 'top_k': int, 'temp': float, 'max_tokens': int}
+        """
         if not session:
             warnings.warn('No session provided, attemtping to use "default" profile', category=RuntimeWarning)
             session = boto3.session.Session(profile_name='default')
         self.client = session.client("bedrock-runtime")
-        self._default_k_ = 100
-        self._default_p_ = .5
-        self._default_t_ = .5
-        self._default_n_ = 150
-        self._k = kwargs.get('top_k', self._default_k_)
-        self._p = kwargs.get('top_p', self._default_p_)
-        self._t = kwargs.get('temp', self._default_t_)
-        self._n = kwargs.get('max_tokens', self._default_n_)
+        self._default_k = 100
+        self._default_p = .5
+        self._default_t = .5
+        self._default_n = 150
+        self._k = kwargs.get('top_k', self._default_k)
+        self._p = kwargs.get('top_p', self._default_p)
+        self._t = kwargs.get('temp', self._default_t)
+        self._n = kwargs.get('max_tokens', self._default_n)
 
     def print_available_models(self) -> None:
         """
@@ -142,7 +159,7 @@ class BasicBedrock(object):
         if schema_inst is None:
             schema_inst = schema_obj()
             schema_inst.update_prompt(request)
-
+        schema_inst.set_params(self.params)
         body = schema_inst.json()
         full_request = {
             "modelId": model_id,
@@ -165,11 +182,28 @@ class BasicBedrock(object):
         response_inst = response_obj(res=resp_body)
         return response_inst
 
+    def set_params(self, params: dict) -> None:
+        """
+        wrapper for property params, allow you to call it as a function
+        :param params: a dict containing any of top_p, top_k, temp, max_tokens
+        :return:
+        """
+        self.params = params
+
     def reset_params(self):
+        """
+        resets the params dictionary to default values
+        these values are defined in _default_k, _default_p, _default_t, _default_n
+        :return:
+        """
         del self.params
 
     @property
     def params(self) -> dict:
+        """
+        returns the params dictionary
+        :return: params dict in format of {'top_p': float, 'top_k': int, 'temp': float, 'max_tokens': int}
+        """
         return {
             "top_p": self._p,
             "top_k": self._k,
@@ -179,6 +213,11 @@ class BasicBedrock(object):
 
     @params.setter
     def params(self, params: dict):
+        """
+        applys a provided params dict to internal params
+        :param params:
+        :return:
+        """
         if not isinstance(params, dict):
             raise ValueError(f"params must be a dict, not a {type(params)}")
         if "top_p" not in params and \
@@ -197,31 +236,57 @@ class BasicBedrock(object):
 
     @params.deleter
     def params(self):
-        self._p = self._default_p_
-        self._k = self._default_k_
-        self._t = self._default_t_
-        self._n = self._default_n_
+        """
+        resets all params to default values
+        :return:
+        """
+        self._p = self._default_p
+        self._k = self._default_k
+        self._t = self._default_t
+        self._n = self._default_n
 
     @property
     def top_p(self) -> float:
+        """
+        returns the top_p parameter
+        :return:
+        """
         return self._p
 
     @top_p.setter
     def top_p(self, top_p: float):
+        """
+        sets the top_p parameter
+        :param top_p:
+        :return:
+        """
         if not (0 < top_p <= 1) or not isinstance(top_p, float):
             raise ValueError(f"top_p value must be between 0 and 1, but got {top_p}")
         self._p = top_p
 
     @top_p.deleter
     def top_p(self):
-        self._p = self._default_p_
+        """
+        resets the top_p parameter
+        :return:
+        """
+        self._p = self._default_p
 
     @property
     def top_k(self) -> int:
+        """
+        returns the top_k parameter
+        :return:
+        """
         return self._k
 
     @top_k.setter
     def top_k(self, k: int):
+        """
+        sets the top_k parameter
+        :param k:
+        :return:
+        """
         if not isinstance(k, int):
             raise ValueError(f"top_k value must be an int, but got {type(k)}")
         if k < 1 or not isinstance(k, int):
@@ -230,14 +295,27 @@ class BasicBedrock(object):
 
     @top_k.deleter
     def top_k(self):
-        self._k = self._default_k_
+        """
+        resets the top_k parameter
+        :return:
+        """
+        self._k = self._default_k
 
     @property
     def temp(self) -> float:
+        """
+        returns the temp parameter
+        :return:
+        """
         return self._t
 
     @temp.setter
     def temp(self, temp: float):
+        """
+        sets the temp parameter
+        :param temp:
+        :return:
+        """
         if not isinstance(temp, float):
             raise ValueError(f"temp value must be float but got {type(temp)}")
         if not (0 <= temp <= 1) or not isinstance(temp, float):
@@ -246,14 +324,27 @@ class BasicBedrock(object):
 
     @temp.deleter
     def temp(self):
-        self._t = self._default_t_
+        """
+        resets the temp parameter
+        :return:
+        """
+        self._t = self._default_t
 
     @property
     def max_tokens(self):
+        """
+        returns the max_tokens parameter
+        :return:
+        """
         return self._n
 
     @max_tokens.setter
     def max_tokens(self, n_tokens: int):
+        """
+        sets the max_tokens parameter
+        :param n_tokens:
+        :return:
+        """
         if not isinstance(n_tokens, int):
             raise ValueError(f"max_tokens value must be an int, but got {type(n_tokens)}")
         if n_tokens < 0 or not isinstance(n_tokens, int):
@@ -262,4 +353,8 @@ class BasicBedrock(object):
 
     @max_tokens.deleter
     def max_tokens(self):
-        self._n = self._default_n_
+        """
+        resets the max_tokens parameter
+        :return:
+        """
+        self._n = self._default_n
