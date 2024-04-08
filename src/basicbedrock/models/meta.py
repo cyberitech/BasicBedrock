@@ -1,9 +1,8 @@
-from typing import List
-from baseclasses import BaseAbstractRequest, BaseAbstractResponse
-
 """
+File containing all of the definitions and implementations for the Meta family of requests and responses.
 Amazon docs currently do not have request schemas for Llama 2 13b and Llama 2 70b, only the chat versions
 """
+from baseclasses import BaseAbstractRequest, BaseAbstractResponse
 
 
 class MetaLlama2ChatV1BaseRequest(BaseAbstractRequest):

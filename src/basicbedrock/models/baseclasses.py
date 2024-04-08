@@ -1,6 +1,10 @@
+"""
+File containing the base classes used for all model requests and responses.
+Contains abstract base classes for the requests and responses, as well as a concrete class for hyperparameters p, k, temp and max_tokens
+"""
 import abc
 import json
-import typing
+
 from pydantic import BaseModel
 
 

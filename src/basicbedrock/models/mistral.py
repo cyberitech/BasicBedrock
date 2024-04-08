@@ -1,5 +1,6 @@
-from typing import List, Optional
-from pydantic import BaseModel
+"""
+File containing all of the definitions and implementations for the Mistral family of requests and responses.
+"""
 from .baseclasses import BaseAbstractRequest, BaseAbstractResponse
 
 

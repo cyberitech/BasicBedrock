@@ -1,5 +1,10 @@
+"""
+File containing all of the definitions and implementations for the Amazon family of requests and responses.
+"""
 from typing import List, Optional
+
 from pydantic import BaseModel
+
 from .baseclasses import BaseAbstractRequest, BaseAbstractResponse
 
 

@@ -1,5 +1,10 @@
+"""
+File containing all of the definitions and implementations for the Anthropic family of requests and responses.
+"""
 from typing import List
+
 from pydantic import BaseModel
+
 from baseclasses import BaseAbstractRequest, BaseAbstractResponse
 
 

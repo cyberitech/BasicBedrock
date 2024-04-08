@@ -1,4 +1,8 @@
+"""
+File containing all of the definitions and implementations for the Cohere family of requests and responses.
+"""
 from typing import List
+
 from baseclasses import BaseAbstractRequest, BaseAbstractResponse
 
 
