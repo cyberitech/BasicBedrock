@@ -3,15 +3,13 @@
 <a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 # <kbd>module</kbd> `basicbedrock.models.meta`
-
-
-
+File containing all of the definitions and implementations for the Meta family of requests and responses. Amazon docs currently do not have request schemas for Llama 2 13b and Llama 2 70b, only the chat versions 
 
 
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L9"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L8"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `MetaLlama2ChatV1BaseRequest`
 Meta LLama 2 13b chat request format. This model supports max_token, temperature and top_p. It does not support top_k 
@@ -43,7 +41,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L48"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L47"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_k`
 
@@ -55,7 +53,7 @@ This model does not support top_k :param top_k: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L64"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L63"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_max_tokens`
 
@@ -67,7 +65,7 @@ set the maximum tokens parameter. :param max_tokens: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L40"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L39"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_p`
 
@@ -79,7 +77,7 @@ Set the top_p parameter. :param top_p: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L56"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L55"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_temp`
 
@@ -91,7 +89,7 @@ set the temperature parameter. :param temp: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L20"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L19"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt`
 
@@ -103,7 +101,7 @@ Update the prompt based on the input text. inserts text according to expected re
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L31"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L30"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt_raw`
 
@@ -116,7 +114,7 @@ Update the prompt based on the input text without regards to expected input form
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L73"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L72"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `MetaLlama213bChatV1Request`
 Request format for Meta Llama 2 13b chat. this model supports max_token, temperature and top_p. It does not support top_k This class is implemented in MetaLlama2ChatV1BaseRequest. 
@@ -148,7 +146,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L48"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L47"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_k`
 
@@ -160,7 +158,7 @@ This model does not support top_k :param top_k: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L64"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L63"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_max_tokens`
 
@@ -172,7 +170,7 @@ set the maximum tokens parameter. :param max_tokens: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L40"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L39"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_p`
 
@@ -184,7 +182,7 @@ Set the top_p parameter. :param top_p: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L56"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L55"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_temp`
 
@@ -196,7 +194,7 @@ set the temperature parameter. :param temp: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L20"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L19"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt`
 
@@ -208,7 +206,7 @@ Update the prompt based on the input text. inserts text according to expected re
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L31"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L30"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt_raw`
 
@@ -221,7 +219,7 @@ Update the prompt based on the input text without regards to expected input form
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L82"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L81"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `MetaLlama270bChatV1Request`
 Request format for Meta Llama 2 70b chat. this model supports max_token, temperature and top_p. It does not support top_k This class is implemented in MetaLlama2ChatV1BaseRequest. 
@@ -253,7 +251,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L48"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L47"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_k`
 
@@ -265,7 +263,7 @@ This model does not support top_k :param top_k: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L64"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L63"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_max_tokens`
 
@@ -277,7 +275,7 @@ set the maximum tokens parameter. :param max_tokens: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L40"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L39"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_p`
 
@@ -289,7 +287,7 @@ Set the top_p parameter. :param top_p: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L56"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L55"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_temp`
 
@@ -301,7 +299,7 @@ set the temperature parameter. :param temp: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L20"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L19"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt`
 
@@ -313,7 +311,7 @@ Update the prompt based on the input text. inserts text according to expected re
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L31"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L30"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt_raw`
 
@@ -326,7 +324,7 @@ Update the prompt based on the input text without regards to expected input form
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L91"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L90"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `MetaLlama2V1BaseResponse`
 Response format of Meta Llama 2 V1 family chat response. 
@@ -358,7 +356,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L96"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L95"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_answer`
 
@@ -373,7 +371,7 @@ get_answer() → str
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L100"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L99"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `MetaLlama213bChatV1Response`
 Response format of Meta Llama 2 13b chat response. Implemented in MetaLlama2V1BaseResponse. 
@@ -405,7 +403,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L96"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L95"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_answer`
 
@@ -420,7 +418,7 @@ get_answer() → str
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L107"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L106"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `MetaLlama270bChatV1Response`
 Response format of Meta Llama 2 70b chat response. Implemented in MetaLlama2V1BaseResponse. 
@@ -452,7 +450,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L96"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\meta.py#L95"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_answer`
 

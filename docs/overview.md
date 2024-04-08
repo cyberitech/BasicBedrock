@@ -7,12 +7,12 @@
 - [`basicbedrock`](./basicbedrock.md#module-basicbedrock)
 - [`basicbedrock.basicbedrock`](./basicbedrock.basicbedrock.md#module-basicbedrockbasicbedrock): Basic Bedrock Python API abstraction.
 - [`basicbedrock.models`](./basicbedrock.models.md#module-basicbedrockmodels)
-- [`basicbedrock.models.amazon`](./basicbedrock.models.amazon.md#module-basicbedrockmodelsamazon)
-- [`basicbedrock.models.anthropic`](./basicbedrock.models.anthropic.md#module-basicbedrockmodelsanthropic)
-- [`basicbedrock.models.baseclasses`](./basicbedrock.models.baseclasses.md#module-basicbedrockmodelsbaseclasses)
-- [`basicbedrock.models.cohere`](./basicbedrock.models.cohere.md#module-basicbedrockmodelscohere)
-- [`basicbedrock.models.meta`](./basicbedrock.models.meta.md#module-basicbedrockmodelsmeta)
-- [`basicbedrock.models.mistral`](./basicbedrock.models.mistral.md#module-basicbedrockmodelsmistral)
+- [`basicbedrock.models.amazon`](./basicbedrock.models.amazon.md#module-basicbedrockmodelsamazon): File containing all of the definitions and implementations for the Amazon family of requests and responses.
+- [`basicbedrock.models.anthropic`](./basicbedrock.models.anthropic.md#module-basicbedrockmodelsanthropic): File containing all of the definitions and implementations for the Anthropic family of requests and responses.
+- [`basicbedrock.models.baseclasses`](./basicbedrock.models.baseclasses.md#module-basicbedrockmodelsbaseclasses): File containing the base classes used for all model requests and responses.
+- [`basicbedrock.models.cohere`](./basicbedrock.models.cohere.md#module-basicbedrockmodelscohere): File containing all of the definitions and implementations for the Cohere family of requests and responses.
+- [`basicbedrock.models.meta`](./basicbedrock.models.meta.md#module-basicbedrockmodelsmeta): File containing all of the definitions and implementations for the Meta family of requests and responses.
+- [`basicbedrock.models.mistral`](./basicbedrock.models.mistral.md#module-basicbedrockmodelsmistral): File containing all of the definitions and implementations for the Mistral family of requests and responses.
 
 ## Classes
 

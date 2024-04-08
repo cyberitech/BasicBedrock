@@ -3,15 +3,13 @@
 <a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 # <kbd>module</kbd> `basicbedrock.models.mistral`
-
-
-
+File containing all of the definitions and implementations for the Mistral family of requests and responses. 
 
 
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L6"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L7"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `MistralBaseRequest`
 Base request for Mistral family of models. this mnodel supports temperature, top_p, top_k and max_tokens 
@@ -43,7 +41,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L28"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L29"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_k`
 
@@ -57,7 +55,7 @@ set_k(top_k: int)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L34"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L35"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_max_tokens`
 
@@ -71,7 +69,7 @@ set_max_tokens(max_tokens: int)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L25"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L26"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_p`
 
@@ -85,7 +83,7 @@ set_p(top_p: float)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L31"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L32"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_temp`
 
@@ -99,7 +97,7 @@ set_temp(temp: float)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L17"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L18"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt`
 
@@ -113,7 +111,7 @@ update_prompt(text)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L22"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L23"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt_raw`
 
@@ -128,7 +126,7 @@ update_prompt_raw(text)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L38"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L39"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `MistralMistral7bInstructV0_2Request`
 Request format for Mistral 7b Instruct V0:2 This model supports temperature, top_p, top_k and max_tokens This class is implemented in MistralBaseRequest 
@@ -160,7 +158,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L28"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L29"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_k`
 
@@ -174,7 +172,7 @@ set_k(top_k: int)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L34"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L35"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_max_tokens`
 
@@ -188,7 +186,7 @@ set_max_tokens(max_tokens: int)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L25"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L26"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_p`
 
@@ -202,7 +200,7 @@ set_p(top_p: float)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L31"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L32"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_temp`
 
@@ -216,7 +214,7 @@ set_temp(temp: float)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L17"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L18"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt`
 
@@ -230,7 +228,7 @@ update_prompt(text)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L22"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L23"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt_raw`
 
@@ -245,7 +243,7 @@ update_prompt_raw(text)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L46"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L47"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `MistralMistral8x7bInstructV0_1Request`
 Request format for Mistral 8x7b Instruct V0:1 This model supports temperature, top_p, top_k and max_tokens This class is implemented in MistralBaseRequest 
@@ -277,7 +275,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L28"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L29"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_k`
 
@@ -291,7 +289,7 @@ set_k(top_k: int)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L34"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L35"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_max_tokens`
 
@@ -305,7 +303,7 @@ set_max_tokens(max_tokens: int)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L25"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L26"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_p`
 
@@ -319,7 +317,7 @@ set_p(top_p: float)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L31"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L32"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_temp`
 
@@ -333,7 +331,7 @@ set_temp(temp: float)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L17"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L18"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt`
 
@@ -347,7 +345,7 @@ update_prompt(text)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L22"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L23"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt_raw`
 
@@ -362,7 +360,7 @@ update_prompt_raw(text)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L54"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L55"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `MistralMistralLarge2402V1_0Request`
 Request format for Mistral Large 2402 V1:0 This model supports temperature, top_p, top_k and max_tokens This class is implemented in MistralBaseRequest 
@@ -394,7 +392,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L28"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L29"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_k`
 
@@ -408,7 +406,7 @@ set_k(top_k: int)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L34"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L35"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_max_tokens`
 
@@ -422,7 +420,7 @@ set_max_tokens(max_tokens: int)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L25"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L26"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_p`
 
@@ -436,7 +434,7 @@ set_p(top_p: float)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L31"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L32"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_temp`
 
@@ -450,7 +448,7 @@ set_temp(temp: float)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L17"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L18"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt`
 
@@ -464,7 +462,7 @@ update_prompt(text)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L22"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L23"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt_raw`
 
@@ -479,7 +477,7 @@ update_prompt_raw(text)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L62"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L63"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `MistralBaseResponse`
 Base response format for Mistral Instruct family of models. 
@@ -511,7 +509,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L67"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L68"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_answer`
 
@@ -526,7 +524,7 @@ get_answer() → str
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L71"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L72"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `MistralMistral7bInstructV0_2Response`
 Response format for Mistral 7b Instruct V0:2 This class is implemented in MistralBaseResponse 
@@ -558,7 +556,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L67"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L68"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_answer`
 
@@ -573,7 +571,7 @@ get_answer() → str
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L78"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L79"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `MistralMistral8x7bInstructV0_1Response`
 Response format for Mistral 8x7b Instruct V0:2 This class is implemented in MistralBaseResponse 
@@ -605,7 +603,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L67"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L68"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_answer`
 
@@ -620,7 +618,7 @@ get_answer() → str
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L85"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L86"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `MistralMistralLarge2402V1_0Response`
 Response format for Mistral Large 2402 v1:0 This class is implemented in MistralInstructBaseResponse 
@@ -652,7 +650,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L67"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\mistral.py#L68"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_answer`
 

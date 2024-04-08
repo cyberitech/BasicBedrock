@@ -3,15 +3,13 @@
 <a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 # <kbd>module</kbd> `basicbedrock.models.cohere`
-
-
-
+File containing all of the definitions and implementations for the Cohere family of requests and responses. 
 
 
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L5"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L9"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `CohereCommandBaseRequest`
 This is the base request format that all Cohere text-family models use These models support top_p, top_k, max_tokens and temperature. 
@@ -43,7 +41,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L27"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L31"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_k`
 
@@ -57,7 +55,7 @@ set_k(top_k: int)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L33"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L37"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_max_tokens`
 
@@ -71,7 +69,7 @@ set_max_tokens(max_tokens: int)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L24"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L28"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_p`
 
@@ -85,7 +83,7 @@ set_p(top_p: float)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L30"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L34"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_temp`
 
@@ -99,7 +97,7 @@ set_temp(temp: float)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L16"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L20"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt`
 
@@ -113,7 +111,7 @@ update_prompt(text)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L21"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L25"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt_raw`
 
@@ -128,7 +126,7 @@ update_prompt_raw(text)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L37"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L41"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `CohereCommandTextV14Request`
 Cohere Command Text V14 supports top_p, top_k, temperature and max_tokens all functionality is implemented in CohereCommandBaseRequest 
@@ -160,7 +158,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L27"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L31"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_k`
 
@@ -174,7 +172,7 @@ set_k(top_k: int)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L33"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L37"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_max_tokens`
 
@@ -188,7 +186,7 @@ set_max_tokens(max_tokens: int)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L24"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L28"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_p`
 
@@ -202,7 +200,7 @@ set_p(top_p: float)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L30"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L34"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_temp`
 
@@ -216,7 +214,7 @@ set_temp(temp: float)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L16"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L20"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt`
 
@@ -230,7 +228,7 @@ update_prompt(text)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L21"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L25"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt_raw`
 
@@ -245,7 +243,7 @@ update_prompt_raw(text)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L44"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L48"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `CohereCommandLightTextV14Request`
 Cohere Command Light Text V14 supports top_p, top_k, temperature and max_tokens all functionality is implemented in CohereCommandBaseRequest 
@@ -277,7 +275,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L27"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L31"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_k`
 
@@ -291,7 +289,7 @@ set_k(top_k: int)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L33"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L37"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_max_tokens`
 
@@ -305,7 +303,7 @@ set_max_tokens(max_tokens: int)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L24"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L28"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_p`
 
@@ -319,7 +317,7 @@ set_p(top_p: float)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L30"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L34"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_temp`
 
@@ -333,7 +331,7 @@ set_temp(temp: float)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L16"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L20"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt`
 
@@ -347,7 +345,7 @@ update_prompt(text)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L21"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L25"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt_raw`
 
@@ -362,7 +360,7 @@ update_prompt_raw(text)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L51"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L55"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `CohereCommandTextBaseResponse`
 this is the base response format used by all text-family cohere models 
@@ -394,7 +392,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L56"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L60"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_answer`
 
@@ -409,7 +407,7 @@ get_answer() → str
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L60"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L64"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `CohereCommandTextV14Response`
 This is the response format for Cohere Command Text v14 It is implemented in CohereCommandTextBaseResponse 
@@ -441,7 +439,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L56"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L60"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_answer`
 
@@ -456,7 +454,7 @@ get_answer() → str
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L67"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L71"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `CohereCommandLightTextV14Response`
 This is the response format for Cohere Command Light Text v14 It is implemented in CohereCommandTextBaseResponse 
@@ -488,7 +486,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L56"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L60"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_answer`
 
@@ -503,7 +501,7 @@ get_answer() → str
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L79"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L83"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `CohereEmbedBaseRequest`
 All cohere command models use the same request format. Models support input text only. 
@@ -535,7 +533,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L104"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L108"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_k`
 
@@ -547,7 +545,7 @@ Cohere Embed V3 does not support top_k :param top_k: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L120"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L124"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_max_tokens`
 
@@ -559,7 +557,7 @@ Cohere Embed V3 does not support max_tokens :param max_tokens: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L96"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L100"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_p`
 
@@ -571,7 +569,7 @@ Cohere Embed V3 does not support top_p :param top_p: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L112"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L116"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_temp`
 
@@ -583,7 +581,7 @@ Cohere Embed V3 does not support temperature :param temp: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L87"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L91"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt`
 
@@ -597,7 +595,7 @@ update_prompt(text)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L93"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L97"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt_raw`
 
@@ -612,7 +610,7 @@ update_prompt_raw(texts: list)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L129"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L133"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `CohereEmbedEnglishV3Request`
 Request for Cohere Embed English V3. It supports top_p, top_k, temperature and max_tokens it is implemented in CohereEmbedBaseRequest 
@@ -644,7 +642,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L104"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L108"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_k`
 
@@ -656,7 +654,7 @@ Cohere Embed V3 does not support top_k :param top_k: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L120"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L124"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_max_tokens`
 
@@ -668,7 +666,7 @@ Cohere Embed V3 does not support max_tokens :param max_tokens: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L96"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L100"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_p`
 
@@ -680,7 +678,7 @@ Cohere Embed V3 does not support top_p :param top_p: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L112"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L116"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_temp`
 
@@ -692,7 +690,7 @@ Cohere Embed V3 does not support temperature :param temp: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L87"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L91"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt`
 
@@ -706,7 +704,7 @@ update_prompt(text)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L93"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L97"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt_raw`
 
@@ -721,7 +719,7 @@ update_prompt_raw(texts: list)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L137"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L141"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `CohereEmbedMultilingualV3Request`
 Request for Cohere Embed Multilingual V3. It supports top_p, top_k, temperature and max_tokens it is implemented in CohereEmbedBaseRequest 
@@ -753,7 +751,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L104"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L108"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_k`
 
@@ -765,7 +763,7 @@ Cohere Embed V3 does not support top_k :param top_k: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L120"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L124"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_max_tokens`
 
@@ -777,7 +775,7 @@ Cohere Embed V3 does not support max_tokens :param max_tokens: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L96"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L100"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_p`
 
@@ -789,7 +787,7 @@ Cohere Embed V3 does not support top_p :param top_p: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L112"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L116"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_temp`
 
@@ -801,7 +799,7 @@ Cohere Embed V3 does not support temperature :param temp: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L87"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L91"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt`
 
@@ -815,7 +813,7 @@ update_prompt(text)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L93"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L97"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update_prompt_raw`
 
@@ -830,7 +828,7 @@ update_prompt_raw(texts: list)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L145"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L149"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `CohereEmbedBaseResponse`
 All Cohere Embed models use the same response format. 
@@ -862,7 +860,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L150"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L154"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_answer`
 
@@ -877,7 +875,7 @@ get_answer() → List[float]
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L154"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L158"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `CohereEmbedEnglishV3Response`
 Response format for Cohere Embed English V3 It is implemented in CohereEmbedBaseResponse 
@@ -909,7 +907,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L150"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L154"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_answer`
 
@@ -924,7 +922,7 @@ get_answer() → List[float]
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L161"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L165"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `CohereEmbedMultilingualV3Response`
 Response for Cohere Embed Multilingual V3. it is implemented in CohereEmbedBaseResponse 
@@ -956,7 +954,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L150"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\models\cohere.py#L154"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_answer`
 

@@ -2,10 +2,10 @@
 name = "basicbedrock"
 version = "0.0.1"
 authors = [
-  { name="David Mattson", email="mattsod@kaizencyber.io" },
+  { name="cyberitech", email="mattsod@kaizencyber.io" },
 ]
 maintainers = [
-    { name="David Mattson", email="mattsod@kaizencyber.io" },
+    { name="cyberitech", email="mattsod@kaizencyber.io" },
 ]
 description = "An abstraction layer for AWS Bedrock.  Removes the need to keep track of response/request schemas."
 readme = "README.md"
