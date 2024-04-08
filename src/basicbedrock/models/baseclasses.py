@@ -5,6 +5,12 @@ from pydantic import BaseModel
 
 
 class Hyperparams(BaseModel, extra="forbid"):
+    """
+    Hyperparameters for a model.
+    Values are top_p, top_k, temp and max_tokens
+    Not all models support all parameters.
+    Any parameters used in here which are not supported by the model are ignored at runtime
+    """
     top_p: float = None
     top_k: int = None
     temp: float = None
@@ -12,6 +18,14 @@ class Hyperparams(BaseModel, extra="forbid"):
 
 
 class BaseAbstractRequest(BaseModel, extra='forbid'):
+    """
+    Abstract base class for all model requests. All model requests must inherit this class.
+    update_prompt and update_promp_raw differ in the fact that some models expect a certain request format to work properly,
+    eg, in certain cases boto3 may reject the request if the prompt does not begin with "Human:"\
+    update_prompt will format all prompts as expected by the model, whereas update_prompt_raw will input text without formatting.
+    The other abstract methods all deal with setting hyperparam values P, K, temp, and max tokens.
+    Additionally, two non abstract methods allow the caller to return the request as a dict or json.
+    """
 
     @abc.abstractmethod
     def update_prompt(self, text):
@@ -81,6 +95,12 @@ class BaseAbstractRequest(BaseModel, extra='forbid'):
 
 
 class BaseAbstractResponse(BaseModel):
+    """
+    This is the abstract base model for all model responses.
+    It will internally store the exact result provided by boto3 as a dict.
+    methods are exposed to return to the caller the raw response as dict or json.
+    The abstract method get_answer serves to parse out the actual response and return it, ignoring the associated metadata.
+    """
     result_raw: dict = None
 
     def __init__(self, res: dict):

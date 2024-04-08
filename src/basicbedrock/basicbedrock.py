@@ -40,7 +40,7 @@ class BasicBedrock(object):
 
     def print_available_models(self) -> None:
         """
-        Prints all available models
+        Prints all available models line by line
         :return: None
         """
         print(os.linesep.join(self.get_available_models()))
@@ -56,7 +56,7 @@ class BasicBedrock(object):
         """
         returns a dict object representing the request scheme of model_id
         :param model_id:  the chosen model id
-        :return:
+        :return: dict object representing the base request scheme of model_id
         """
         if model_id not in self.get_available_models():
             raise ValueError(f"requested model {model_id} is not an available model")
@@ -67,24 +67,24 @@ class BasicBedrock(object):
             d = json.loads(j)
             return d
 
-    def get_model_schema_object(self, model_id: str) -> BaseAbstractRequest:
+    def get_model_request_object(self, model_id: str) -> BaseAbstractRequest:
         """
         returns an instantiated object representing the schema for the chosen model.
         All these inherit from BaseSchemaAbstract.
         Its useful for when you want to use BaseSchemaAbstract to modify prompts and produce json or dicts manually
         :param model_id: the chosen model ID
-        :return: the schema class object for the chosen model
+        :return: the schema class object for the chosen model, it will be a subclass of a BaseAbstractRequest
         """
         if model_id not in self.get_available_models():
             raise ValueError(f"requested model {model_id} is not an available model")
         _inst = model_request_mapping.get(model_id)()
         return _inst
 
-    def get_model_schema_json(self, model_id: str) -> str:
+    def get_model_request_json(self, model_id: str) -> str:
         """
         returns a string object representing the request scheme of model_id in json format
         :param model_id:  the chosen model id
-        :return:
+        :return: a json string
         """
         if model_id not in self.get_available_models():
             raise ValueError(f"requested model {model_id} is not an available model")
@@ -100,7 +100,7 @@ class BasicBedrock(object):
         if indent is not None, indent the lines when printing
         :param model_id: the chosen model id
         :param indent: how many spaces to indent, default=4
-        :return:
+        :return: None
         """
         if model_id not in self.get_available_models():
             raise ValueError(f"requested model {model_id} is not an available model")
@@ -122,7 +122,7 @@ class BasicBedrock(object):
         :param model_id: the model id you wish to invoke
         :param request: a string or dict representing either a prompt or a model request schema
         :param show_request: prints the request blob before invoking
-        :return: the response to the request
+        :return: the response to the request, as a subclass of a model.BaseAbstractResponse
         """
 
         if not isinstance(request, dict) and not isinstance(request, str):

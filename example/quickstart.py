@@ -2,12 +2,7 @@ import sys
 import os
 import boto3
 import random
-
-try:
-    from basicbedrock import BasicBedrock
-except:  # we are not installed, only working in project directory
-    sys.path.append(os.path.abspath('../src/basicbedrock'))
-    from basicbedrock import BasicBedrock
+from basicbedrock import BasicBedrock
 
 # create a session (optional, but nice)
 session = boto3.session.Session(profile_name='default')

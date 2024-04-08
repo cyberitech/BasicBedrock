@@ -34,7 +34,7 @@ def test_invoke_with_valid_json_blob(bb, verbose=False):
     all_models = bb.get_available_models()
     for model in all_models:
         print(f"now testing {model} in invoke with valid json blob")
-        schema_inst = bb.get_model_schema_object(model)
+        schema_inst = bb.get_model_request_object(model)
         schema_inst.update_prompt(prompt)
         blob = schema_inst.json()
         r = bb.invoke(model, blob, show_request=verbose)
@@ -48,7 +48,7 @@ def test_invoke_with_valid_dict(bb, verbose=False):
     all_models = bb.get_available_models()
     for model in all_models:
         print(f"now testing {model} in invoke with valid dict")
-        schema_inst = bb.get_model_schema_object(model)
+        schema_inst = bb.get_model_request_object(model)
         schema_inst.update_prompt(prompt)
         j = schema_inst.json()
         d = json.loads(j)

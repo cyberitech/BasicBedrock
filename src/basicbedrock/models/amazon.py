@@ -4,6 +4,11 @@ from .baseclasses import BaseAbstractRequest, BaseAbstractResponse
 
 
 class AmazonTitanTextGenerationConfig(BaseModel):
+    """
+    Stub class for the configuration blob included as part of requests to Amazon Titan family models.
+    the available hyperparameters are kept internally here and include P, temperate and max_tokens
+    this model does not support K values.
+    """
     maxTokenCount: int = 1000
     stopSequences: List[Optional[str]] = []
     temperature: float = 0.5

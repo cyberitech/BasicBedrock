@@ -90,6 +90,10 @@ class AnthropicClaudeV2_1Response(AnthropicClaudeV1V2BaseModelResponse):
 
 
 class AntropicClaude3MessageContent(BaseModel):
+    """
+    Stub class for the Antropic Claude V3 message content field.
+    it contains information about the content of the input (is it text or image) as well as the input itself
+    """
     type: str = "text"
     text: str = '\n\nHuman: {PROMPT}\n\nAssistant:'
 
@@ -102,6 +106,10 @@ class AntropicClaude3MessageContent(BaseModel):
 
 
 class AntropicClaude3Message(BaseModel):
+    """
+    Stub class for the Antropic Claude V3 message content field.
+    this contains metadata about the request, such as the role, as well as a list of AntropicClaude3MessageContent classes
+    """
     role: str = "user"
     content: List[AntropicClaude3MessageContent] = [AntropicClaude3MessageContent()]
 
