@@ -3,8 +3,13 @@ AWS Bedrock provides a variety of foundational models to AWS customers.  Each mo
 
 This package aims to abstract away all of that.  Currently, it only abstracts the input prompt and the answer text, but I plan to also inlcude abstraction layers for the other parameters as well.
 
+## Installation
+```bash
+pip install basicbedrock
+```
+
 ## Usage
-Rather simple to use.  See [simple.py](example/simple.py) for some usage.
+Rather simple to use.  See [examples](./examples) for some usage examples.
 
 ```python
 import boto3

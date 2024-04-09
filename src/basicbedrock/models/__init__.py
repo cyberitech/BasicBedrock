@@ -1,3 +1,6 @@
+"""
+This package contains all models used in basicbedrock.  It models and abstracts all the response/request schemas used by bedrock.
+"""
 import os
 import sys
 
