@@ -5,6 +5,7 @@ import os
 import sys
 
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
+from .ai21 import *
 from .amazon import *
 from .anthropic import *
 from .baseclasses import BaseAbstractRequest
@@ -13,6 +14,8 @@ from .meta import *
 from .mistral import *
 
 model_request_mapping = {
+    "ai21.j2-ultra-v1": AI21Jurassic2UltraV1Request,
+    "ai21.j2-mid-v1": AI21Jurassic2MidV1Request,
     "amazon.titan-embed-text-v1": AmazonTitanEmbedTextV1Request,
     "amazon.titan-text-lite-v1": AmazonTitanTextLiteV1Request,
     "amazon.titan-text-express-v1": AmazonTitanTextExpressV1Request,
@@ -33,6 +36,8 @@ model_request_mapping = {
 }
 
 model_response_mapping = {
+    "ai21.j2-ultra-v1": AI21Jurassic2UltraV1Response,
+    "ai21.j2-mid-v1": AI21Jurassic2MidV1Response,
     "amazon.titan-embed-text-v1": AmazonTitanEmbedTextV1Response,
     "amazon.titan-text-lite-v1": AmazonTitanTextLiteV1Response,
     "amazon.titan-text-express-v1": AmazonTitanTextExpressV1Response,

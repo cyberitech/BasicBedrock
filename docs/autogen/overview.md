@@ -4,9 +4,10 @@
 
 ## Modules
 
-- [`basicbedrock`](./basicbedrock.md#module-basicbedrock)
+- [`basicbedrock`](./basicbedrock.md#module-basicbedrock): the basicbedrock module contains basicbedrock.BasicBedrock, the top-level class for all of the module's functionality.
 - [`basicbedrock.basicbedrock`](./basicbedrock.basicbedrock.md#module-basicbedrockbasicbedrock): Basic Bedrock Python API abstraction.
-- [`basicbedrock.models`](./basicbedrock.models.md#module-basicbedrockmodels)
+- [`basicbedrock.models`](./basicbedrock.models.md#module-basicbedrockmodels): This package contains all models used in basicbedrock.  It models and abstracts all the response/request schemas used by bedrock.
+- [`basicbedrock.models.ai21`](./basicbedrock.models.ai21.md#module-basicbedrockmodelsai21): File containing all of the definitions and implementations for the AI21 (jurassic) family of requests and responses.
 - [`basicbedrock.models.amazon`](./basicbedrock.models.amazon.md#module-basicbedrockmodelsamazon): File containing all of the definitions and implementations for the Amazon family of requests and responses.
 - [`basicbedrock.models.anthropic`](./basicbedrock.models.anthropic.md#module-basicbedrockmodelsanthropic): File containing all of the definitions and implementations for the Anthropic family of requests and responses.
 - [`basicbedrock.models.baseclasses`](./basicbedrock.models.baseclasses.md#module-basicbedrockmodelsbaseclasses): File containing the base classes used for all model requests and responses.
@@ -17,6 +18,12 @@
 ## Classes
 
 - [`basicbedrock.BasicBedrock`](./basicbedrock.basicbedrock.md#class-basicbedrock)
+- [`ai21.AI21Jurassic2BaseRequest`](./basicbedrock.models.ai21.md#class-ai21jurassic2baserequest): AI21 Jurassic 2 request format.
+- [`ai21.AI21Jurassic2BaseResponse`](./basicbedrock.models.ai21.md#class-ai21jurassic2baseresponse): All AI21 Jurassic 2 models use the same response format.
+- [`ai21.AI21Jurassic2MidV1Request`](./basicbedrock.models.ai21.md#class-ai21jurassic2midv1request): Request format for AI21 Jurassic 2 Mid request.
+- [`ai21.AI21Jurassic2MidV1Response`](./basicbedrock.models.ai21.md#class-ai21jurassic2midv1response): Response format for AI21 Jurassic 2 Mid response.
+- [`ai21.AI21Jurassic2UltraV1Request`](./basicbedrock.models.ai21.md#class-ai21jurassic2ultrav1request): Request format for  AI21 Jurassic 2 Ultra request.
+- [`ai21.AI21Jurassic2UltraV1Response`](./basicbedrock.models.ai21.md#class-ai21jurassic2ultrav1response): Response format for AI21 Jurassic 2 Ultra response.
 - [`amazon.AmazonTitanBaseModelRequest`](./basicbedrock.models.amazon.md#class-amazontitanbasemodelrequest): All current Amazon Titan family models use the same request schema.
 - [`amazon.AmazonTitanEmbedTextV1Request`](./basicbedrock.models.amazon.md#class-amazontitanembedtextv1request): Request structure for Amazon Titan Embedding V1 API
 - [`amazon.AmazonTitanEmbedTextV1Response`](./basicbedrock.models.amazon.md#class-amazontitanembedtextv1response): Response structure for Amazon Titan Embedding V1 API both Express and Lite

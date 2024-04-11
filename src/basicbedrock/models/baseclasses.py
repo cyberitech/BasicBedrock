@@ -4,6 +4,7 @@ Contains abstract base classes for the requests and responses, as well as a conc
 """
 import abc
 import json
+import typing
 
 from pydantic import BaseModel
 
@@ -19,6 +20,7 @@ class Hyperparams(BaseModel, extra="forbid"):
     top_k: int = None
     temp: float = None
     max_tokens: int = None
+    stop_words: typing.List[str] = []
 
 
 class BaseAbstractRequest(BaseModel, extra='forbid'):
@@ -32,7 +34,7 @@ class BaseAbstractRequest(BaseModel, extra='forbid'):
     """
 
     @abc.abstractmethod
-    def update_prompt(self, text):
+    def set_prompt(self, text: str):
         """
         Updates the prompt while maintaining its expected internal prompt structure
         Example, if the prompt must begin with 'Human:' this will be maintained
@@ -42,7 +44,7 @@ class BaseAbstractRequest(BaseModel, extra='forbid'):
         raise NotImplementedError("Abstract method update_prompt not implemented")
 
     @abc.abstractmethod
-    def update_prompt_raw(self, text):
+    def set_prompt_raw(self, text: str):
         """
         Updates the prompt without regards to any expected prompt structure.
         this is used for very precisely modifying prompts.
@@ -50,6 +52,15 @@ class BaseAbstractRequest(BaseModel, extra='forbid'):
         :return:
         """
         raise NotImplementedError("Abstract method update_prompt_raw not implemented")
+
+    @abc.abstractmethod
+    def set_stop_words(self, stop_words: typing.List[str]):
+        """
+        Sets the stop words used in the model.
+        If the model does not support stop words, this is ignored
+        :param stop_words: the list of strings
+        :return:
+        """
 
     def get_dict(self):
         j = json.loads(self.json())
@@ -80,6 +91,8 @@ class BaseAbstractRequest(BaseModel, extra='forbid'):
             self.set_p(hparams.top_p)
         if hparams.max_tokens is not None:
             self.set_max_tokens(hparams.max_tokens)
+        if hparams.stop_words is not None:
+            self.set_stop_words(hparams.stop_words)
 
     @abc.abstractmethod
     def set_p(self, top_p: float):

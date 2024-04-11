@@ -2,6 +2,8 @@
 File containing all of the definitions and implementations for the Meta family of requests and responses.
 Amazon docs currently do not have request schemas for Llama 2 13b and Llama 2 70b, only the chat versions
 """
+import typing
+
 from baseclasses import BaseAbstractRequest, BaseAbstractResponse
 
 
@@ -12,11 +14,11 @@ class MetaLlama2ChatV1BaseRequest(BaseAbstractRequest):
     It does not support top_k
     """
     prompt: str = "{PROMPT}"
-    max_gen_len: int = 512
+    max_gen_len: int = 250
     temperature: float = 0.5
     top_p: float = 0.5
 
-    def update_prompt(self, text):
+    def set_prompt(self, text):
         """
         Update the prompt based on the input text.
         inserts text according to expected request conventions.
@@ -25,9 +27,9 @@ class MetaLlama2ChatV1BaseRequest(BaseAbstractRequest):
         """
         input_text = "{PROMPT}"
         input_text = input_text.format(PROMPT=text)
-        self.update_prompt_raw(input_text)
+        self.set_prompt_raw(input_text)
 
-    def update_prompt_raw(self, text):
+    def set_prompt_raw(self, text):
         """
         Update the prompt based on the input text without regards to expected input format
         what you insert, is inserted raw without formatting
@@ -35,6 +37,15 @@ class MetaLlama2ChatV1BaseRequest(BaseAbstractRequest):
         :return:
         """
         self.prompt = text
+
+    def set_stop_words(self, stop_words: typing.List[str]):
+        """
+        Meta Llama 2 models dont support stop words
+        :param stop_words:
+        :return:
+        """
+        pass
+
 
     def set_p(self, top_p: float):
         """

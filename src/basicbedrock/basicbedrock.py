@@ -35,10 +35,16 @@ class BasicBedrock(object):
         self._default_p = .5
         self._default_t = .5
         self._default_n = 150
-        self._k = kwargs.get('top_k', self._default_k)
-        self._p = kwargs.get('top_p', self._default_p)
-        self._t = kwargs.get('temp', self._default_t)
-        self._n = kwargs.get('max_tokens', self._default_n)
+        self._default_stop = []
+        # intialize params to default values
+        self._k = self._default_k
+        self._p = self._default_p
+        self._t = self._default_t
+        self._n = self._default_n
+        self._s = self._default_stop
+        # set params according to kwargs
+        if kwargs:
+            self.set_params(kwargs)
 
     def print_available_models(self) -> None:
         """
@@ -114,6 +120,26 @@ class BasicBedrock(object):
                 j = json.dumps(json.loads(j), indent=indent)
         print(j)
 
+    def get_boto3_body(self, model_id: str, prompt: str) -> str:
+        """
+        given a model_id and a prompt, this will construct the boto3 'body' parameter using the specified prompt and params,
+        but it will not invoke bedrock or pass it to boto3, it will simply return the boto3 'body' param as a string.
+        Internally, this calls the update_prompt() function, not update_prompt_raw(), which means that it will take into account
+        the expected calling convention of the underlying model by inserting things such as 'Human:' or '<s>[INST]' as appropriate
+        :param model_id: the model to construct a boto3 body for
+        :param prompt: the prompt to pass the model.
+        :return: a string, representing the equivalent boto3 'body' parameter.
+        """
+        if model_id not in self.get_available_models():
+            raise ValueError(f"requested model {model_id} is not an available model")
+        if not isinstance(prompt, str):
+            raise ValueError(f"prompt must be a string, but got {type(prompt)}")
+        schema = model_request_mapping.get(model_id)
+        schema_inst: BaseAbstractRequest = schema()
+        schema_inst.set_prompt(prompt)
+        j = schema_inst.json()
+        return j
+
     def invoke(self, model_id: str, request: typing.Union[str, dict],
                show_request: bool = False) -> BaseAbstractResponse:
         """
@@ -160,7 +186,7 @@ class BasicBedrock(object):
                 pass
         if schema_inst is None:
             schema_inst = schema_obj()
-            schema_inst.update_prompt(request)
+            schema_inst.set_prompt(request)
         schema_inst.set_params(self.params)
         body = schema_inst.json()
         full_request = {
@@ -210,7 +236,8 @@ class BasicBedrock(object):
             "top_p": self._p,
             "top_k": self._k,
             "temp": self._t,
-            "max_tokens": self._n
+            "max_tokens": self._n,
+            "stop_words": self._s
         }
 
     @params.setter
@@ -225,16 +252,24 @@ class BasicBedrock(object):
         if "top_p" not in params and \
                 "top_k" not in params and \
                 "max_tokens" not in params and \
-                "temp" not in params:
-            raise ValueError(f"params must contain top_p, top_k, max_tokens or temp")
+                "temp" not in params and \
+                "stop_words" not in params:
+            raise ValueError(f"params must contain top_p, top_k, max_tokens, temp or stop_tokens")
         if "top_p" in params:
-            self.top_p = params["top_p"]
+            top_p = params.get("top_p")
+            self.top_p = top_p
         if "top_k" in params:
-            self.top_k = params["top_k"]
+            top_k = params.get("top_k")
+            self.top_k = top_k
         if "temp" in params:
-            self.temp = params["temp"]
+            temp = params.get("temp")
+            self.temp = temp
         if "max_tokens" in params:
-            self.max_tokens = params["max_tokens"]
+            max_tokens = params.get("max_tokens")
+            self.max_tokens = max_tokens
+        if "stop_words" in params:
+            stop_tokens = params.get("stop_words")
+            self._s = stop_tokens
 
     @params.deleter
     def params(self):
@@ -246,6 +281,7 @@ class BasicBedrock(object):
         self._k = self._default_k
         self._t = self._default_t
         self._n = self._default_n
+        self._s = self._default_stop
 
     @property
     def top_p(self) -> float:
@@ -360,3 +396,34 @@ class BasicBedrock(object):
         :return:
         """
         self._n = self._default_n
+
+    @property
+    def stop_words(self) -> list:
+        """
+        returns the max_tokens parameter
+        :return:
+        """
+
+        return self._s
+
+    @stop_words.setter
+    def stop_words(self, stop_words: List[str]):
+        """
+        sets the max_tokens parameter
+        :param n_tokens:
+        :return:
+        """
+        if not isinstance(stop_words, list):
+            raise ValueError(f"stop_tokens must be a list, not a {type(stop_words)}")
+        for i, item in enumerate(stop_words):
+            if not isinstance(item, str):
+                raise ValueError(f"stop_tokens must be a list of strings, but element {i} is a {type(item)}")
+        self._s = stop_words
+
+    @stop_words.deleter
+    def stop_words(self):
+        """
+        resets the max_tokens parameter
+        :return:
+        """
+        self._s = self._default_stop

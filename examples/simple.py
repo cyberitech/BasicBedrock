@@ -1,3 +1,6 @@
+"""
+simple set up and go
+"""
 import boto3
 from basicbedrock import BasicBedrock
 

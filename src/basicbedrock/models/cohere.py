@@ -1,6 +1,7 @@
 """
 File containing all of the definitions and implementations for the Cohere family of requests and responses.
 """
+import typing
 from typing import List
 
 from baseclasses import BaseAbstractRequest, BaseAbstractResponse
@@ -16,14 +17,23 @@ class CohereCommandBaseRequest(BaseAbstractRequest):
     temperature: float = 0.5
     p: float = 0.5
     k: int = 125
+    stop_sequences: List[str] = []
 
-    def update_prompt(self, text):
+    def set_prompt(self, text):
         input_text = "{PROMPT}"
         input_text = input_text.format(PROMPT=text)
-        self.update_prompt_raw(input_text)
+        self.set_prompt_raw(input_text)
 
-    def update_prompt_raw(self, text):
+    def set_prompt_raw(self, text):
         self.prompt = text
+
+    def set_stop_words(self, stop_words: typing.List[str]):
+        """
+        Cohere seems to accept any number of stop words
+        :param stop_words:
+        :return:
+        """
+        self.stop_sequences = stop_words
 
     def set_p(self, top_p: float):
         self.p = top_p
@@ -88,14 +98,17 @@ class CohereEmbedBaseRequest(BaseAbstractRequest):
     texts: List[str] = ["{PROMPT}"]
     input_type: str = "search_document"
 
-    def update_prompt(self, text):
+    def set_prompt(self, text):
         input_text = "{PROMPT}"
         input_text = input_text.format(PROMPT=text)
         texts = [input_text]
-        self.update_prompt_raw(texts)
+        self.set_prompt_raw(texts)
 
-    def update_prompt_raw(self, texts: list):
+    def set_prompt_raw(self, texts: list):
         self.texts = texts
+
+    def set_stop_words(self, stop_words: typing.List[str]):
+        pass
 
     def set_p(self, top_p: float):
         """

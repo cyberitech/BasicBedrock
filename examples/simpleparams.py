@@ -1,3 +1,6 @@
+"""
+this shows how to set parameters
+"""
 import boto3
 from basicbedrock import BasicBedrock
 

@@ -1,6 +1,7 @@
 """
 File containing all of the definitions and implementations for the Anthropic family of requests and responses.
 """
+import typing
 from typing import List
 
 from pydantic import BaseModel
@@ -15,19 +16,27 @@ class AnthropicV1V2BaseModelRequest(BaseAbstractRequest):
     this model supports temp, top_k, top_p, stop sequences and max_tokens
     """
     prompt: str = "\n\nHuman: {PROMPT}\n\nAssistant:"
-    max_tokens_to_sample: int = 300
+    max_tokens_to_sample: int = 250
     temperature: float = 0.5
-    top_k: int = 250
-    top_p: float = 1.
+    top_k: int = 125
+    top_p: float = 0.5
     stop_sequences: list = ["\n\nHuman:"]
     anthropic_version: str = "bedrock-2023-05-31"
 
-    def update_prompt(self, text):
+    def set_prompt(self, text):
         prompt = f"\n\nHuman: {text}\n\nAssistant:"
-        self.update_prompt_raw(prompt)
+        self.set_prompt_raw(prompt)
 
-    def update_prompt_raw(self, text):
+    def set_prompt_raw(self, text):
         self.prompt = text
+
+    def set_stop_words(self, stop_sequences: List[str]):
+        """
+        Anthropic Claude V1 and V2 seems to accept any number of stop sequences of any format
+        :param stop_sequences: the stop sequences to use
+        :return:
+        """
+        self.stop_sequences = stop_sequences
 
     def set_p(self, top_p: float):
         self.top_p = top_p
@@ -137,12 +146,21 @@ class AnthropicClaude3SonnetHaikuBaseRequest(BaseAbstractRequest):
     temperature: float = 0.5
     messages: List[AntropicClaude3Message] = [AntropicClaude3Message()]
     anthropic_version: str = "bedrock-2023-05-31"
+    stop_sequences: List[str] = []
 
-    def update_prompt(self, text):
+    def set_prompt(self, text):
         self.messages[0].update_prompt(text)
 
-    def update_prompt_raw(self, text):
+    def set_prompt_raw(self, text):
         self.messages[0].update_prompt_raw(text)
+
+    def set_stop_words(self, stop_sequences: List[str]):
+        """
+        Anthropic Claude V3 seems to accept any number of stop sequences of any format
+        :param stop_sequences: the stop sequences to use
+        :return:
+        """
+        self.stop_sequences = stop_sequences
 
     def set_p(self, top_p: float):
         self.top_p = top_p

@@ -1,6 +1,6 @@
 <!-- markdownlint-disable -->
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\basicbedrock.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 # <kbd>module</kbd> `basicbedrock.basicbedrock`
 Basic Bedrock Python API abstraction. Currently supports all text-modal foundation models in AWS Bedrock. Abstracts away the need to understand any of the model-specific response or request semantics. Simply pick a model, and invoke it with a prompt. If you with to specify k, p, temp, and max_token parameters, they will be applied on a best effort basis. not all models support all parameters. 
@@ -13,14 +13,14 @@ Basic Bedrock Python API abstraction. Currently supports all text-modal foundati
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\basicbedrock.py#L20"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L20"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `BasicBedrock`
 
 
 
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\basicbedrock.py#L21"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L21"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `__init__`
 
@@ -45,6 +45,12 @@ returns the params dictionary :return: params dict in format of {'top_p': float,
 
 ---
 
+#### <kbd>property</kbd> stop_words
+
+returns the max_tokens parameter :return: 
+
+---
+
 #### <kbd>property</kbd> temp
 
 returns the temp parameter :return: 
@@ -65,7 +71,7 @@ returns the top_p parameter :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\basicbedrock.py#L50"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L56"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_available_models`
 
@@ -77,7 +83,19 @@ returns a list of all available models :return: ["model1", "model2", "model3"...
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\basicbedrock.py#L85"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L123"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>method</kbd> `get_boto3_body`
+
+```python
+get_boto3_body(model_id: str, prompt: str) → str
+```
+
+given a model_id and a prompt, this will construct the boto3 'body' parameter using the specified prompt and params, but it will not invoke bedrock or pass it to boto3, it will simply return the boto3 'body' param as a string. Internally, this calls the update_prompt() function, not update_prompt_raw(), which means that it will take into account the expected calling convention of the underlying model by inserting things such as 'Human:' or '<s>[INST]' as appropriate :param model_id: the model to construct a boto3 body for :param prompt: the prompt to pass the model. :return: a string, representing the equivalent boto3 'body' parameter. 
+
+---
+
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L91"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_model_request_json`
 
@@ -89,7 +107,7 @@ returns a string object representing the request scheme of model_id in json form
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\basicbedrock.py#L72"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L78"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_model_request_object`
 
@@ -101,7 +119,7 @@ returns an instantiated object representing the schema for the chosen model. All
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\basicbedrock.py#L57"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L63"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_model_schema_dict`
 
@@ -113,7 +131,7 @@ returns a dict object representing the request scheme of model_id :param model_i
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\basicbedrock.py#L117"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L143"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `invoke`
 
@@ -129,7 +147,7 @@ invokes a model_id and returns the response.  Non-streaming only. request may by
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\basicbedrock.py#L43"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L49"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `print_available_models`
 
@@ -141,7 +159,7 @@ Prints all available models line by line :return: None
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\basicbedrock.py#L99"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L105"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `print_model_schema`
 
@@ -153,7 +171,7 @@ prints the request scheme of model_id in a pretty format. if indent is not None,
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\basicbedrock.py#L195"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L221"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `reset_params`
 
@@ -165,7 +183,7 @@ resets the params dictionary to default values these values are defined in _defa
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main\src\basicbedrock\basicbedrock.py#L187"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L213"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_params`
 

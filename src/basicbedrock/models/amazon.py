@@ -14,10 +14,10 @@ class AmazonTitanTextGenerationConfig(BaseModel):
     the available hyperparameters are kept internally here and include P, temperate and max_tokens
     this model does not support K values.
     """
-    maxTokenCount: int = 1000
+    maxTokenCount: int = 250
     stopSequences: List[Optional[str]] = []
     temperature: float = 0.5
-    topP: float = 1.
+    topP: float = 0.5
 
 
 class AmazonTitanBaseModelRequest(BaseAbstractRequest):
@@ -29,13 +29,35 @@ class AmazonTitanBaseModelRequest(BaseAbstractRequest):
     inputText: str = "{PROMPT}"
     textGenerationConfig: AmazonTitanTextGenerationConfig = AmazonTitanTextGenerationConfig()
 
-    def update_prompt(self, text):
+    def set_prompt(self, text):
         input_text = "{PROMPT}"
         input_text = input_text.format(PROMPT=text)
-        self.update_prompt_raw(input_text)
+        self.set_prompt_raw(input_text)
 
-    def update_prompt_raw(self, text):
+    def set_prompt_raw(self, text):
         self.inputText = text
+
+    def set_stop_words(self, stop_words: List[str]):
+        """
+        https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-text.html#model-parameters-titan-request-response
+        Only valid stop words are "|", "User:" or none at all
+        If no valid stop words are passed, the default of [] is used
+        If a valid stop word is present in the list, the first one will be used
+        :param stop_words:
+        :return:
+        """
+        if not stop_words:
+            self.textGenerationConfig.stopSequences = []
+        else:
+            # titan only accepts a single stop word.  and, it only accepts '| and 'User:' as a valid stop word
+            # I want to ensure that if a valid stop word is given, we use the first one.
+            # if no valid stop words are given, we wont use any
+            if '|' not in stop_words and 'User:' not in stop_words:
+                self.textGenerationConfig.stopSequences = []
+            for word in stop_words:
+                if word in ('|', 'User:'):
+                    self.textGenerationConfig.stopSequences = [word]
+
 
     def set_k(self, top_k: int):
         """
@@ -120,13 +142,16 @@ class AmazonTitanEmbedTextV1Request(BaseAbstractRequest):
     """
     inputText: str = "{PROMPT}"
 
-    def update_prompt(self, text):
+    def set_prompt(self, text):
         input_text = "{PROMPT}"
         input_text = input_text.format(PROMPT=text)
-        self.update_prompt_raw(input_text)
+        self.set_prompt_raw(input_text)
 
-    def update_prompt_raw(self, text):
+    def set_prompt_raw(self, text):
         self.inputText = text
+
+    def set_stop_words(self, stop_words: List[str]):
+        pass
 
     def set_k(self, top_k: int):
         """

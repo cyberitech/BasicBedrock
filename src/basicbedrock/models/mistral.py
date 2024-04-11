@@ -1,6 +1,8 @@
 """
 File containing all of the definitions and implementations for the Mistral family of requests and responses.
 """
+import typing
+
 from .baseclasses import BaseAbstractRequest, BaseAbstractResponse
 
 
@@ -14,14 +16,23 @@ class MistralBaseRequest(BaseAbstractRequest):
     temperature: float = 0.5
     top_p: float = 0.5
     top_k: int = 125
+    stop: typing.List[str] = []
 
-    def update_prompt(self, text):
+    def set_prompt(self, text):
         input_text = "<s>[INST] {PROMPT} [/INST]"
         input_text = input_text.format(PROMPT=text)
-        self.update_prompt_raw(input_text)
+        self.set_prompt_raw(input_text)
 
-    def update_prompt_raw(self, text):
+    def set_prompt_raw(self, text):
         self.prompt = text
+
+    def set_stop_words(self, stop_words: typing.List[str]):
+        """
+        Mistral models seem to accept any number of stop words in any format
+        :param stop_words:
+        :return:
+        """
+        self.stop = stop_words
 
     def set_p(self, top_p: float):
         self.top_p = top_p
