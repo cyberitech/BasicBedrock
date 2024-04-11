@@ -287,7 +287,7 @@ class BasicBedrock(object):
     def top_p(self) -> float:
         """
         returns the top_p parameter
-        :return:
+        :return: a float representing the top_p parameter
         """
         return self._p
 
@@ -314,7 +314,7 @@ class BasicBedrock(object):
     def top_k(self) -> int:
         """
         returns the top_k parameter
-        :return:
+        :return: a int representing the top_k parameter
         """
         return self._k
 
@@ -343,7 +343,7 @@ class BasicBedrock(object):
     def temp(self) -> float:
         """
         returns the temp parameter
-        :return:
+        :return: a float representing the temperature
         """
         return self._t
 
@@ -369,10 +369,10 @@ class BasicBedrock(object):
         self._t = self._default_t
 
     @property
-    def max_tokens(self):
+    def max_tokens(self)->int:
         """
         returns the max_tokens parameter
-        :return:
+        :return: the int max_tokens parameter
         """
         return self._n
 
@@ -400,8 +400,8 @@ class BasicBedrock(object):
     @property
     def stop_words(self) -> list:
         """
-        returns the max_tokens parameter
-        :return:
+        returns the stop_words parameter
+        :return: a list of stop words
         """
 
         return self._s
@@ -409,7 +409,7 @@ class BasicBedrock(object):
     @stop_words.setter
     def stop_words(self, stop_words: List[str]):
         """
-        sets the max_tokens parameter
+        sets the stop_words parameter
         :param n_tokens:
         :return:
         """
@@ -423,7 +423,7 @@ class BasicBedrock(object):
     @stop_words.deleter
     def stop_words(self):
         """
-        resets the max_tokens parameter
+        resets the stop_words parameter
         :return:
         """
         self._s = self._default_stop
