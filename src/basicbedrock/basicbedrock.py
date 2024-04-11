@@ -137,6 +137,7 @@ class BasicBedrock(object):
         schema = model_request_mapping.get(model_id)
         schema_inst: BaseAbstractRequest = schema()
         schema_inst.set_prompt(prompt)
+        schema_inst.set_params(self.params)
         j = schema_inst.json()
         return j
 
