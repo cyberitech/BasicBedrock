@@ -7,7 +7,7 @@ from typing import List
 from baseclasses import BaseAbstractRequest, BaseAbstractResponse
 
 
-class CohereCommandBaseRequest(BaseAbstractRequest):
+class CohereCommandTextBaseRequest(BaseAbstractRequest):
     """
     This is the base request format that all Cohere text-family models use
     These models support top_p, top_k, max_tokens and temperature.
@@ -48,19 +48,6 @@ class CohereCommandBaseRequest(BaseAbstractRequest):
         self.max_tokens = max_tokens
 
 
-class CohereCommandTextV14Request(CohereCommandBaseRequest):
-    """
-    Cohere Command Text V14 supports top_p, top_k, temperature and max_tokens
-    all functionality is implemented in CohereCommandBaseRequest
-    """
-
-
-class CohereCommandLightTextV14Request(CohereCommandBaseRequest):
-    """
-    Cohere Command Light Text V14 supports top_p, top_k, temperature and max_tokens
-    all functionality is implemented in CohereCommandBaseRequest
-    """
-
 
 class CohereCommandTextBaseResponse(BaseAbstractResponse):
     """
@@ -69,20 +56,6 @@ class CohereCommandTextBaseResponse(BaseAbstractResponse):
 
     def get_answer(self) -> str:
         return self.result_raw['generations'][0]['text']
-
-
-class CohereCommandTextV14Response(CohereCommandTextBaseResponse):
-    """
-    This is the response format for Cohere Command Text v14
-    It is implemented in CohereCommandTextBaseResponse
-    """
-
-
-class CohereCommandLightTextV14Response(CohereCommandTextBaseResponse):
-    """
-    This is the response format for Cohere Command Light Text v14
-    It is implemented in CohereCommandTextBaseResponse
-    """
 
 
 """
@@ -143,22 +116,6 @@ class CohereEmbedBaseRequest(BaseAbstractRequest):
         pass
 
 
-class CohereEmbedEnglishV3Request(CohereEmbedBaseRequest):
-    """
-    Request for Cohere Embed English V3.
-    It supports top_p, top_k, temperature and max_tokens
-    it is implemented in CohereEmbedBaseRequest
-    """
-
-
-class CohereEmbedMultilingualV3Request(CohereEmbedBaseRequest):
-    """
-    Request for Cohere Embed Multilingual V3.
-    It supports top_p, top_k, temperature and max_tokens
-    it is implemented in CohereEmbedBaseRequest
-    """
-
-
 class CohereEmbedBaseResponse(BaseAbstractResponse):
     """
     All Cohere Embed models use the same response format.
@@ -166,17 +123,3 @@ class CohereEmbedBaseResponse(BaseAbstractResponse):
 
     def get_answer(self) -> List[float]:
         return self.result_raw['embeddings'][0]
-
-
-class CohereEmbedEnglishV3Response(CohereEmbedBaseResponse):
-    """
-    Response format for Cohere Embed English V3
-    It is implemented in CohereEmbedBaseResponse
-    """
-
-
-class CohereEmbedMultilingualV3Response(CohereEmbedBaseResponse):
-    """
-    Response for Cohere Embed Multilingual V3.
-    it is implemented in CohereEmbedBaseResponse
-    """

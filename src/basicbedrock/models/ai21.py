@@ -86,24 +86,6 @@ class AI21Jurassic2BaseRequest(BaseAbstractRequest):
         self.maxTokens = max_tokens
 
 
-class AI21Jurassic2UltraV1Request(AI21Jurassic2BaseRequest):
-    """
-    Request format for  AI21 Jurassic 2 Ultra request.
-    this model supports max_token, temperature and top_p.
-    It does not support top_k
-    This class is implemented in AI21Jurassic2BaseRequest.
-    """
-
-
-class AI21Jurassic2MidV1Request(AI21Jurassic2BaseRequest):
-    """
-    Request format for AI21 Jurassic 2 Mid request.
-    this model supports max_token, temperature and top_p.
-    It does not support top_k
-    This class is implemented in MetaLlama2ChatV1BaseRequest.
-    """
-
-
 class AI21Jurassic2BaseResponse(BaseAbstractResponse):
     """
     All AI21 Jurassic 2 models use the same response format.
@@ -112,16 +94,3 @@ class AI21Jurassic2BaseResponse(BaseAbstractResponse):
     def get_answer(self) -> List[float]:
         return self.result_raw['completions'][0]['data']['text']
 
-
-class AI21Jurassic2UltraV1Response(AI21Jurassic2BaseResponse):
-    """
-    Response format for AI21 Jurassic 2 Ultra response.
-    It is implemented in AI21Jurassic2BaseResponse
-    """
-
-
-class AI21Jurassic2MidV1Response(AI21Jurassic2BaseResponse):
-    """
-    Response format for AI21 Jurassic 2 Mid response.
-    It is implemented in AI21Jurassic2BaseResponse
-    """

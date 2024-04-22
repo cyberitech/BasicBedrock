@@ -20,7 +20,7 @@ class AmazonTitanTextGenerationConfig(BaseModel):
     topP: float = 0.5
 
 
-class AmazonTitanBaseModelRequest(BaseAbstractRequest):
+class AmazonTitanTextV1Request(BaseAbstractRequest):
     """
     All current Amazon Titan family models use the same request schema.
     This base class is used by both Amazon Titan Text G1 Express and Titan Text v1 Lite
@@ -92,25 +92,6 @@ class AmazonTitanBaseModelRequest(BaseAbstractRequest):
         self.textGenerationConfig.topP = top_p
 
 
-class AmazonTitanTextExpressV1Request(AmazonTitanBaseModelRequest):
-    """
-    Request structure for Amazon Titan Text Express V1 API.
-    This model accepts text and returns text.
-    This model does not support K parameter.
-
-    Please see AmazonTitanBaseModelRequest for the implementation of all methods
-    """
-
-
-class AmazonTitanTextLiteV1Request(AmazonTitanBaseModelRequest):
-    """
-    Request structure for Amazon Titan Text Lite V1 API
-    This model accepts text and returns text.
-    This model does not support K parameter.
-
-    Please see AmazonTitanBaseModelRequest for the implementation of all methods
-    """
-
 
 class AmazonTitanTextV1Response(BaseAbstractResponse):
     """
@@ -120,19 +101,6 @@ class AmazonTitanTextV1Response(BaseAbstractResponse):
     def get_answer(self) -> List[float]:
         return self.result_raw['results'][0]['outputText']
 
-
-class AmazonTitanTextExpressV1Response(AmazonTitanTextV1Response):
-    """
-    Response structure for Amazon Titan Text Express V1 API.
-    Implemented in AmazonTitanTextV1Response
-    """
-
-
-class AmazonTitanTextLiteV1Response(AmazonTitanTextV1Response):
-    """
-    Response structure for Amazon Titan Text Lite V1 API.
-    Implemented in AmazonTitanTextV1Response
-    """
 
 
 class AmazonTitanEmbedTextV1Request(BaseAbstractRequest):

@@ -47,30 +47,6 @@ class MistralBaseRequest(BaseAbstractRequest):
         self.max_tokens = max_tokens
 
 
-class MistralMistral7bInstructV0_2Request(MistralBaseRequest):
-    """
-    Request format for Mistral 7b Instruct V0:2
-    This model supports temperature, top_p, top_k and max_tokens
-    This class is implemented in MistralBaseRequest
-    """
-
-
-class MistralMistral8x7bInstructV0_1Request(MistralBaseRequest):
-    """
-    Request format for Mistral 8x7b Instruct V0:1
-    This model supports temperature, top_p, top_k and max_tokens
-    This class is implemented in MistralBaseRequest
-    """
-
-
-class MistralMistralLarge2402V1_0Request(MistralBaseRequest):
-    """
-    Request format for Mistral Large 2402 V1:0
-    This model supports temperature, top_p, top_k and max_tokens
-    This class is implemented in MistralBaseRequest
-    """
-
-
 class MistralBaseResponse(BaseAbstractResponse):
     """
     Base response format for Mistral Instruct family of models.
@@ -78,24 +54,3 @@ class MistralBaseResponse(BaseAbstractResponse):
 
     def get_answer(self) -> str:
         return self.result_raw['outputs'][0]['text']
-
-
-class MistralMistral7bInstructV0_2Response(MistralBaseResponse):
-    """
-    Response format for Mistral 7b Instruct V0:2
-    This class is implemented in MistralBaseResponse
-    """
-
-
-class MistralMistral8x7bInstructV0_1Response(MistralBaseResponse):
-    """
-    Response format for Mistral 8x7b Instruct V0:2
-    This class is implemented in MistralBaseResponse
-    """
-
-
-class MistralMistralLarge2402V1_0Response(MistralBaseResponse):
-    """
-    Response format for Mistral Large 2402 v1:0
-    This class is implemented in MistralInstructBaseResponse
-    """

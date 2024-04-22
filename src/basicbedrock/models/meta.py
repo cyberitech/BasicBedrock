@@ -80,25 +80,7 @@ class MetaLlama2ChatV1BaseRequest(BaseAbstractRequest):
         self.max_gen_len = max_tokens
 
 
-class MetaLlama213bChatV1Request(MetaLlama2ChatV1BaseRequest):
-    """
-    Request format for Meta Llama 2 13b chat.
-    this model supports max_token, temperature and top_p.
-    It does not support top_k
-    This class is implemented in MetaLlama2ChatV1BaseRequest.
-    """
-
-
-class MetaLlama270bChatV1Request(MetaLlama2ChatV1BaseRequest):
-    """
-    Request format for Meta Llama 2 70b chat.
-    this model supports max_token, temperature and top_p.
-    It does not support top_k
-    This class is implemented in MetaLlama2ChatV1BaseRequest.
-    """
-
-
-class MetaLlama2V1BaseResponse(BaseAbstractResponse):
+class MetaLlama2ChatV1BaseResponse(BaseAbstractResponse):
     """
     Response format of Meta Llama 2 V1 family chat response.
     """
@@ -107,15 +89,3 @@ class MetaLlama2V1BaseResponse(BaseAbstractResponse):
         return self.result_raw['generation']
 
 
-class MetaLlama213bChatV1Response(MetaLlama2V1BaseResponse):
-    """
-    Response format of Meta Llama 2 13b chat response.
-    Implemented in MetaLlama2V1BaseResponse.
-    """
-
-
-class MetaLlama270bChatV1Response(MetaLlama2V1BaseResponse):
-    """
-    Response format of Meta Llama 2 70b chat response.
-    Implemented in MetaLlama2V1BaseResponse.
-    """

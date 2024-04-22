@@ -35,7 +35,7 @@ Creates an instance of basic bedrock. session param is optional.  If omitted, a 
 
 #### <kbd>property</kbd> max_tokens
 
-returns the max_tokens parameter :return: 
+returns the max_tokens parameter :return: the int max_tokens parameter 
 
 ---
 
@@ -47,25 +47,25 @@ returns the params dictionary :return: params dict in format of {'top_p': float,
 
 #### <kbd>property</kbd> stop_words
 
-returns the max_tokens parameter :return: 
+returns the stop_words parameter :return: a list of stop words 
 
 ---
 
 #### <kbd>property</kbd> temp
 
-returns the temp parameter :return: 
+returns the temp parameter :return: a float representing the temperature 
 
 ---
 
 #### <kbd>property</kbd> top_k
 
-returns the top_k parameter :return: 
+returns the top_k parameter :return: a int representing the top_k parameter 
 
 ---
 
 #### <kbd>property</kbd> top_p
 
-returns the top_p parameter :return: 
+returns the top_p parameter :return: a float representing the top_p parameter 
 
 
 
@@ -131,7 +131,7 @@ returns a dict object representing the request scheme of model_id :param model_i
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L143"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L144"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `invoke`
 
@@ -171,7 +171,7 @@ prints the request scheme of model_id in a pretty format. if indent is not None,
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L221"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L222"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `reset_params`
 
@@ -183,7 +183,7 @@ resets the params dictionary to default values these values are defined in _defa
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L213"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L214"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_params`
 

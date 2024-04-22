@@ -299,8 +299,10 @@ class BasicBedrock(object):
         :param top_p:
         :return:
         """
-        if not (0 < top_p <= 1) or not isinstance(top_p, float):
-            raise ValueError(f"top_p value must be between 0 and 1, but got {top_p}")
+        if not isinstance(top_p, float) or isinstance(top_p, int):
+            raise ValueError(f"top_p value must be a float, but got {type(top_p)}")
+        if not (0 <= top_p <= 1):
+            raise ValueError(f"top_p value must be between 0 and 1 inclusive, but got {top_p}")
         self._p = top_p
 
     @top_p.deleter
@@ -328,8 +330,8 @@ class BasicBedrock(object):
         """
         if not isinstance(k, int):
             raise ValueError(f"top_k value must be an int, but got {type(k)}")
-        if k < 1 or not isinstance(k, int):
-            raise ValueError(f"top_k value must be positive and an integer, but got {top_k}")
+        if k < 1:
+            raise ValueError(f"top_k value must be positive, but got {top_k}")
         self._k = k
 
     @top_k.deleter
@@ -355,7 +357,7 @@ class BasicBedrock(object):
         :param temp:
         :return:
         """
-        if not isinstance(temp, float):
+        if not isinstance(temp, float) or isinstance(temp, int):
             raise ValueError(f"temp value must be float but got {type(temp)}")
         if not (0 <= temp <= 1) or not isinstance(temp, float):
             raise ValueError(f"temp value must be between 0 and 1, but got {temp}")
