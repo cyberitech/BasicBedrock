@@ -28,7 +28,7 @@ Basic Bedrock Python API abstraction. Currently supports all text-modal foundati
 __init__(session: Session = None, **kwargs)
 ```
 
-Creates an instance of basic bedrock. session param is optional.  If omitted, a default session will be used. Right now, the only kwargs supported are a param dictionary. Param dicts are in the format of {'top_p': float, 'top_k': int, 'temp': float, 'max_tokens': int} :param session: the boto3 session to use for creating the basic bedrock instance :param kwargs: kwargs used are in the format of {'top_p': float, 'top_k': int, 'temp': float, 'max_tokens': int} 
+Creates an instance of basic bedrock. session param is optional.  If omitted, a default session constructor will be used. Right now, the only kwargs supported are a param dictionary. Param dicts are in the format of {'top_p': float, 'top_k': int, 'temp': float, 'max_tokens': int} :param session: the boto3 session to use for creating the basic bedrock instance :param kwargs: kwargs used are in the format of {'top_p': float, 'top_k': int, 'temp': float, 'max_tokens': int} 
 
 
 ---

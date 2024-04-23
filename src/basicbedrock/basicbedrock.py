@@ -21,15 +21,15 @@ class BasicBedrock(object):
     def __init__(self, session: boto3.session.Session = None, **kwargs):
         """
         Creates an instance of basic bedrock.
-        session param is optional.  If omitted, a default session will be used.
+        session param is optional.  If omitted, a default session constructor will be used.
         Right now, the only kwargs supported are a param dictionary.
         Param dicts are in the format of {'top_p': float, 'top_k': int, 'temp': float, 'max_tokens': int}
         :param session: the boto3 session to use for creating the basic bedrock instance
         :param kwargs: kwargs used are in the format of {'top_p': float, 'top_k': int, 'temp': float, 'max_tokens': int}
         """
         if not session:
-            warnings.warn('No session provided, attemtping to use "default" profile', category=RuntimeWarning)
-            session = boto3.session.Session(profile_name='default')
+            warnings.warn('No session provided, attempting to use "default" profile', category=RuntimeWarning)
+            session = boto3.session.Session()
         self.client = session.client("bedrock-runtime")
         self._default_k = 100
         self._default_p = .5
