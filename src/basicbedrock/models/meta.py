@@ -7,27 +7,15 @@ import typing
 from baseclasses import BaseAbstractRequest, BaseAbstractResponse
 
 
-class MetaLlamaV2V3BaseRequest(BaseAbstractRequest):
+class MetaLlamaBaseRequest(BaseAbstractRequest):
     """
-    Meta LLama 2 13b chat request format.
     This model supports max_token, temperature and top_p.
     It does not support top_k
     """
-    prompt: str = "{PROMPT}"
     max_gen_len: int = 250
     temperature: float = 0.5
     top_p: float = 0.5
 
-    def set_prompt(self, text):
-        """
-        Update the prompt based on the input text.
-        inserts text according to expected request conventions.
-        :param text:
-        :return:
-        """
-        input_text = "{PROMPT}"
-        input_text = input_text.format(PROMPT=text)
-        self.set_prompt_raw(input_text)
 
     def set_prompt_raw(self, text):
         """
@@ -45,7 +33,6 @@ class MetaLlamaV2V3BaseRequest(BaseAbstractRequest):
         :return:
         """
         pass
-
 
     def set_p(self, top_p: float):
         """
@@ -89,3 +76,45 @@ class MetaLlamaV2V3BaseResponse(BaseAbstractResponse):
         return self.result_raw['generation']
 
 
+class MetaLlamaV2BaseRequest(MetaLlamaBaseRequest):
+    """
+    Specifies the expected Llama 2 V1 family chat request format using the [INST] tags
+    """
+    prompt: str = "<s>[INST]{PROMPT}[/INST]"
+
+
+    def set_prompt(self, text):
+        """
+        Update the prompt based on the input text.
+        inserts text according to expected request conventions.
+        :param text:
+        :return:
+        """
+        input_text = "<s>[INST]{PROMPT}[/INST]"
+        input_text = input_text.format(PROMPT=text)
+        self.set_prompt_raw(input_text)
+
+class MetaLlamaV3BaseRequest(MetaLlamaBaseRequest):
+    """
+    Specifies the expected Llama 2 V1 family chat request format using the expected header format
+    """
+    prompt: str = (
+        '<|begin_of_text|><|start_header_id|>user<|end_header_id|>\n'
+        '\n'
+        '{PROMPT}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n'
+    )
+
+    def set_prompt(self, text):
+        """
+        Update the prompt based on the input text.
+        inserts text according to expected request conventions.
+        :param text:
+        :return:
+        """
+        input_text = str(
+            "<|begin_of_text|><|start_header_id|>user<|end_header_id|>\n"
+            "\n"
+            "{PROMPT}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n"
+        )
+        input_text = input_text.format(PROMPT=text)
+        self.set_prompt_raw(input_text)
