@@ -11,7 +11,7 @@ File containing all of the definitions and implementations for the Meta family o
 
 <a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/meta.py#L10"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
-## <kbd>class</kbd> `MetaLlama2ChatV1BaseRequest`
+## <kbd>class</kbd> `MetaLlamaV2V3BaseRequest`
 Meta LLama 2 13b chat request format. This model supports max_token, temperature and top_p. It does not support top_k 
 
 
@@ -128,7 +128,7 @@ set the temperature parameter. :param temp: :return:
 
 <a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/meta.py#L83"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
-## <kbd>class</kbd> `MetaLlama2ChatV1BaseResponse`
+## <kbd>class</kbd> `MetaLlamaV2V3BaseResponse`
 Response format of Meta Llama 2 V1 family chat response. 
 
 

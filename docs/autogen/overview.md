@@ -38,8 +38,8 @@
 - [`cohere.CohereCommandTextBaseResponse`](./basicbedrock.models.cohere.md#class-coherecommandtextbaseresponse): this is the base response format used by all text-family cohere models
 - [`cohere.CohereEmbedBaseRequest`](./basicbedrock.models.cohere.md#class-cohereembedbaserequest): All cohere command models use the same request format.
 - [`cohere.CohereEmbedBaseResponse`](./basicbedrock.models.cohere.md#class-cohereembedbaseresponse): All Cohere Embed models use the same response format.
-- [`meta.MetaLlama2ChatV1BaseRequest`](./basicbedrock.models.meta.md#class-metallama2chatv1baserequest): Meta LLama 2 13b chat request format.
-- [`meta.MetaLlama2ChatV1BaseResponse`](./basicbedrock.models.meta.md#class-metallama2chatv1baseresponse): Response format of Meta Llama 2 V1 family chat response.
+- [`meta.MetaLlamaV2V3BaseRequest`](./basicbedrock.models.meta.md#class-metallamav2v3baserequest): Meta LLama 2 13b chat request format.
+- [`meta.MetaLlamaV2V3BaseResponse`](./basicbedrock.models.meta.md#class-metallamav2v3baseresponse): Response format of Meta Llama 2 V1 family chat response.
 - [`mistral.MistralBaseRequest`](./basicbedrock.models.mistral.md#class-mistralbaserequest): Base request for Mistral family of models.
 - [`mistral.MistralBaseResponse`](./basicbedrock.models.mistral.md#class-mistralbaseresponse): Base response format for Mistral Instruct family of models.
 

@@ -7,7 +7,7 @@ import typing
 from baseclasses import BaseAbstractRequest, BaseAbstractResponse
 
 
-class MetaLlama2ChatV1BaseRequest(BaseAbstractRequest):
+class MetaLlamaV2V3BaseRequest(BaseAbstractRequest):
     """
     Meta LLama 2 13b chat request format.
     This model supports max_token, temperature and top_p.
@@ -80,7 +80,7 @@ class MetaLlama2ChatV1BaseRequest(BaseAbstractRequest):
         self.max_gen_len = max_tokens
 
 
-class MetaLlama2ChatV1BaseResponse(BaseAbstractResponse):
+class MetaLlamaV2V3BaseResponse(BaseAbstractResponse):
     """
     Response format of Meta Llama 2 V1 family chat response.
     """
