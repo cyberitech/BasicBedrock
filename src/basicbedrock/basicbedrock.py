@@ -15,6 +15,7 @@ import boto3
 import pydantic
 
 from models import *
+from src import basicbedrock
 
 
 class BasicBedrock(object):
@@ -46,16 +47,51 @@ class BasicBedrock(object):
         if kwargs:
             self.set_params(kwargs)
 
-    def print_available_models(self) -> None:
+        # determine which models are enabled in AWS account and also supported by BasicBedrock
+        _bedrock_cp = session.client("bedrock")
+        r = _bedrock_cp.list_foundation_models()
+        self.enabled_models = [
+            e.get('modelId') for e in r['modelSummaries'] if e.get('modelLifecycle').get('status') == 'ACTIVE'
+        ]
+        self.available_models = sorted(
+            list(
+                set(
+                    self.enabled_models
+                ).intersection(
+                    set(
+                        BasicBedrock.get_supported_models()
+                    )
+                )
+            )
+        )
+
+    def print_available_models(self):
         """
-        Prints all available models line by line
+        Prints available models that are supported by BasicBedrock and enabled in the aws account
+        :return:
+        """
+        print(os.linesep.join(self.available_models))
+
+
+    def get_available_models(self):
+        """
+        Gets a list of available models that are supported by BasicBedrock and enabled in the aws account
+        :return: list of models both enabled and suported
+        """
+        return self.available_models
+
+    @staticmethod
+    def print_supported_models() -> None:
+        """
+        Prints all models supported by BasicBedrock, which may not be the same models a user has enabled within their account
         :return: None
         """
-        print(os.linesep.join(self.get_available_models()))
+        print(os.linesep.join(BasicBedrock.get_supported_models()))
 
-    def get_available_models(self) -> list:
+    @staticmethod
+    def get_supported_models() -> list:
         """
-        returns a list of all available models
+        returns a list of all models supported by BasicBedrock, which may not be the same models a user has enabled within their account
         :return: ["model1", "model2", "model3"...]
         """
         return sorted(model_request_mapping.keys())
@@ -66,7 +102,7 @@ class BasicBedrock(object):
         :param model_id:  the chosen model id
         :return: dict object representing the base request scheme of model_id
         """
-        if model_id not in self.get_available_models():
+        if model_id not in self.get_supported_models():
             raise ValueError(f"requested model {model_id} is not an available model")
         else:
             model = model_request_mapping.get(model_id)
@@ -83,7 +119,7 @@ class BasicBedrock(object):
         :param model_id: the chosen model ID
         :return: the schema class object for the chosen model, it will be a subclass of a BaseAbstractRequest
         """
-        if model_id not in self.get_available_models():
+        if model_id not in self.get_supported_models():
             raise ValueError(f"requested model {model_id} is not an available model")
         _inst = model_request_mapping.get(model_id)()
         return _inst
@@ -94,7 +130,7 @@ class BasicBedrock(object):
         :param model_id:  the chosen model id
         :return: a json string
         """
-        if model_id not in self.get_available_models():
+        if model_id not in self.get_supported_models():
             raise ValueError(f"requested model {model_id} is not an available model")
         else:
             model = model_request_mapping.get(model_id)
@@ -110,7 +146,7 @@ class BasicBedrock(object):
         :param indent: how many spaces to indent, default=4
         :return: None
         """
-        if model_id not in self.get_available_models():
+        if model_id not in self.get_supported_models():
             raise ValueError(f"requested model {model_id} is not an available model")
         else:
             model = model_request_mapping.get(model_id)
@@ -130,7 +166,7 @@ class BasicBedrock(object):
         :param prompt: the prompt to pass the model.
         :return: a string, representing the equivalent boto3 'body' parameter.
         """
-        if model_id not in self.get_available_models():
+        if model_id not in self.get_supported_models():
             raise ValueError(f"requested model {model_id} is not an available model")
         if not isinstance(prompt, str):
             raise ValueError(f"prompt must be a string, but got {type(prompt)}")
@@ -430,3 +466,4 @@ class BasicBedrock(object):
         :return:
         """
         self._s = self._default_stop
+
