@@ -71,19 +71,19 @@ returns the top_p parameter :return: a float representing the top_p parameter
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L56"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L75"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_available_models`
 
 ```python
-get_available_models() → list
+get_available_models()
 ```
 
-returns a list of all available models :return: ["model1", "model2", "model3"...] 
+Gets a list of available models that are supported by BasicBedrock and enabled in the aws account :return: list of models both enabled and suported 
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L123"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L158"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_boto3_body`
 
@@ -95,7 +95,7 @@ given a model_id and a prompt, this will construct the boto3 'body' parameter us
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L91"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L126"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_model_request_json`
 
@@ -107,7 +107,7 @@ returns a string object representing the request scheme of model_id in json form
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L78"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L113"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_model_request_object`
 
@@ -119,7 +119,7 @@ returns an instantiated object representing the schema for the chosen model. All
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L63"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L98"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_model_schema_dict`
 
@@ -131,7 +131,19 @@ returns a dict object representing the request scheme of model_id :param model_i
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L144"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L90"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>method</kbd> `get_supported_models`
+
+```python
+get_supported_models() → list
+```
+
+returns a list of all models supported by BasicBedrock, which may not be the same models a user has enabled within their account :return: ["model1", "model2", "model3"...] 
+
+---
+
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L179"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `invoke`
 
@@ -147,19 +159,19 @@ invokes a model_id and returns the response.  Non-streaming only. request may by
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L49"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L67"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `print_available_models`
 
 ```python
-print_available_models() → None
+print_available_models()
 ```
 
-Prints all available models line by line :return: None 
+Prints available models that are supported by BasicBedrock and enabled in the aws account :return: 
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L105"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L140"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `print_model_schema`
 
@@ -171,7 +183,19 @@ prints the request scheme of model_id in a pretty format. if indent is not None,
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L222"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L82"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>method</kbd> `print_supported_models`
+
+```python
+print_supported_models() → None
+```
+
+Prints all models supported by BasicBedrock, which may not be the same models a user has enabled within their account :return: None 
+
+---
+
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L257"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `reset_params`
 
@@ -183,7 +207,7 @@ resets the params dictionary to default values these values are defined in _defa
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L214"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/basicbedrock.py#L249"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_params`
 

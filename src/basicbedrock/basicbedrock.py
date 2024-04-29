@@ -15,7 +15,6 @@ import boto3
 import pydantic
 
 from models import *
-from src import basicbedrock
 
 
 class BasicBedrock(object):
