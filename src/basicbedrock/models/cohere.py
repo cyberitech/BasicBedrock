@@ -6,6 +6,13 @@ from typing import List
 
 from baseclasses import BaseAbstractRequest, BaseAbstractResponse
 
+COHERE_COMMAND_TEXT_CONTEXT_WINDOW = 4_000
+COHERE_COMMAND_R_RPLUS_CONTEXT_WINDOW = 128_000 - 1
+COHERE_COMMAND_TEXT_MAX_OUTPUT = 4_096
+COHERE_COMMAND_R_MAX_OUTPUT = 127_894 # undocumented.  Trial and error
+COHERE_COMMAND_RPLUS_MAX_OUTPUT = 115_000 # somewhere between 115_000 and 120_00. didnt want to test
+
+
 
 class CohereCommandTextBaseRequest(BaseAbstractRequest):
     """
@@ -22,6 +29,7 @@ class CohereCommandTextBaseRequest(BaseAbstractRequest):
     def set_prompt(self, text):
         input_text = "{PROMPT}"
         input_text = input_text.format(PROMPT=text)
+        input_text = input_text[:COHERE_COMMAND_TEXT_CONTEXT_WINDOW]
         self.set_prompt_raw(input_text)
 
     def set_prompt_raw(self, text):
@@ -45,8 +53,7 @@ class CohereCommandTextBaseRequest(BaseAbstractRequest):
         self.temperature = temp
 
     def set_max_tokens(self, max_tokens: int):
-        self.max_tokens = max_tokens
-
+        self.max_tokens = min(max_tokens, COHERE_COMMAND_TEXT_MAX_OUTPUT)
 
 
 class CohereCommandTextBaseResponse(BaseAbstractResponse):

@@ -7,6 +7,8 @@ from pydantic import BaseModel
 
 from .baseclasses import BaseAbstractRequest, BaseAbstractResponse
 
+AI21_JURASSIC2_CONTEXT_WINDOW = 8_000
+AI21_JURASSIC2_MAX_OUTPUT = 8_191
 
 class AI21Jurassic2BaseRequest(BaseAbstractRequest):
     """
@@ -30,6 +32,7 @@ class AI21Jurassic2BaseRequest(BaseAbstractRequest):
         """
         input_text = "{PROMPT}"
         input_text = input_text.format(PROMPT=text)
+        input_text = input_text[:AI21_JURASSIC2_CONTEXT_WINDOW]
         self.set_prompt_raw(input_text)
 
     def set_prompt_raw(self, text):
@@ -83,7 +86,7 @@ class AI21Jurassic2BaseRequest(BaseAbstractRequest):
         :param max_tokens:
         :return:
         """
-        self.maxTokens = max_tokens
+        self.maxTokens = min(max_tokens, AI21_JURASSIC2_MAX_OUTPUT)
 
 
 class AI21Jurassic2BaseResponse(BaseAbstractResponse):

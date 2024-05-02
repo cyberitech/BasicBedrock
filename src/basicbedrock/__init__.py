@@ -7,5 +7,6 @@ import sys
 
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 from .basicbedrock import BasicBedrock
+from .models import *
 
 __version__ = '0.1.10'

@@ -7,24 +7,21 @@ import typing
 from baseclasses import BaseAbstractRequest, BaseAbstractResponse
 
 
+META_LLAMA_V2_CONTEXT_WINDOW = 4_000
+META_LLAMA_V3_CONTEXT_WINDOW = 8_000
+META_LLAMA_V2V3_MAX_OUTPUT = 2_048
+
+
 class MetaLlamaBaseRequest(BaseAbstractRequest):
     """
     This model supports max_token, temperature and top_p.
     It does not support top_k
     """
+
     max_gen_len: int = 250
     temperature: float = 0.5
     top_p: float = 0.5
 
-
-    def set_prompt_raw(self, text):
-        """
-        Update the prompt based on the input text without regards to expected input format
-        what you insert, is inserted raw without formatting
-        :param text:
-        :return:
-        """
-        self.prompt = text
 
     def set_stop_words(self, stop_words: typing.List[str]):
         """
@@ -64,7 +61,13 @@ class MetaLlamaBaseRequest(BaseAbstractRequest):
         :param max_tokens:
         :return:
         """
-        self.max_gen_len = max_tokens
+        self.max_gen_len = min(max_tokens, META_LLAMA_V2V3_MAX_OUTPUT)
+
+    def set_prompt(self, text: str):
+        pass
+
+    def set_prompt_raw(self, text: str):
+        pass
 
 
 class MetaLlamaV2V3BaseResponse(BaseAbstractResponse):
@@ -82,17 +85,22 @@ class MetaLlamaV2BaseRequest(MetaLlamaBaseRequest):
     """
     prompt: str = "<s>[INST]{PROMPT}[/INST]"
 
-
     def set_prompt(self, text):
+        prompt = "<s>[INST]{PROMPT}[/INST]"
+        padding = len(prompt.replace("{PROMPT}",""))
+        cut_text = text[:META_LLAMA_V2_CONTEXT_WINDOW-padding]
+        prompt = prompt.format(PROMPT=cut_text)
+        self.set_prompt_raw(prompt)
+
+
+    def set_prompt_raw(self, text):
         """
-        Update the prompt based on the input text.
-        inserts text according to expected request conventions.
+        Update the prompt based on the input text without regards to expected input format
+        what you insert, is inserted raw without formatting
         :param text:
         :return:
         """
-        input_text = "<s>[INST]{PROMPT}[/INST]"
-        input_text = input_text.format(PROMPT=text)
-        self.set_prompt_raw(input_text)
+        self.prompt = text
 
 class MetaLlamaV3BaseRequest(MetaLlamaBaseRequest):
     """
@@ -105,16 +113,21 @@ class MetaLlamaV3BaseRequest(MetaLlamaBaseRequest):
     )
 
     def set_prompt(self, text):
-        """
-        Update the prompt based on the input text.
-        inserts text according to expected request conventions.
-        :param text:
-        :return:
-        """
-        input_text = str(
+        prompt = str(
             "<|begin_of_text|><|start_header_id|>user<|end_header_id|>\n"
             "\n"
             "{PROMPT}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n"
         )
-        input_text = input_text.format(PROMPT=text)
-        self.set_prompt_raw(input_text)
+        padding = len(prompt.replace("{PROMPT}",""))
+        cut_text = text[:META_LLAMA_V3_CONTEXT_WINDOW-padding]
+        prompt = prompt.format(PROMPT=cut_text)
+        self.set_prompt_raw(prompt)
+
+    def set_prompt_raw(self, text):
+        """
+        Update the prompt based on the input text without regards to expected input format
+        what you insert, is inserted raw without formatting
+        :param text:
+        :return:
+        """
+        self.prompt = text

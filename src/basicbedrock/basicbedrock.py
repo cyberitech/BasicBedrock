@@ -8,7 +8,6 @@ not all models support all parameters.
 """
 
 import json
-import typing
 import warnings
 
 import boto3
@@ -46,13 +45,13 @@ class BasicBedrock(object):
         if kwargs:
             self.set_params(kwargs)
 
-        # determine which models are enabled in AWS account and also supported by BasicBedrock
+        # We need to know what models are enabled in the aws account for this region
         _bedrock_cp = session.client("bedrock")
         r = _bedrock_cp.list_foundation_models()
         self.enabled_models = [
             e.get('modelId') for e in r['modelSummaries'] if e.get('modelLifecycle').get('status') == 'ACTIVE'
         ]
-        self.available_models = sorted(
+        self.available_models = sorted(  # calculates and sorts nodels both enabled and supported
             list(
                 set(
                     self.enabled_models
@@ -70,7 +69,6 @@ class BasicBedrock(object):
         :return:
         """
         print(os.linesep.join(self.available_models))
-
 
     def get_available_models(self):
         """
@@ -118,8 +116,8 @@ class BasicBedrock(object):
         :param model_id: the chosen model ID
         :return: the schema class object for the chosen model, it will be a subclass of a BaseAbstractRequest
         """
-        if model_id not in self.get_supported_models():
-            raise ValueError(f"requested model {model_id} is not an available model")
+        if model_id not in BasicBedrock.get_supported_models():
+            raise ValueError(f"requested model {model_id} is not an available model in BasicBedrock")
         _inst = model_request_mapping.get(model_id)()
         return _inst
 
@@ -129,13 +127,14 @@ class BasicBedrock(object):
         :param model_id:  the chosen model id
         :return: a json string
         """
-        if model_id not in self.get_supported_models():
-            raise ValueError(f"requested model {model_id} is not an available model")
+        if model_id not in BasicBedrock.get_supported_models():
+            raise ValueError(f"requested model {model_id} is not an available model in BasicBedrock")
         else:
             model = model_request_mapping.get(model_id)
             _inst = model()
             j = _inst.json()
             return j
+
 
     def print_model_schema(self, model_id: str, indent: int = None) -> None:
         """
@@ -145,8 +144,8 @@ class BasicBedrock(object):
         :param indent: how many spaces to indent, default=4
         :return: None
         """
-        if model_id not in self.get_supported_models():
-            raise ValueError(f"requested model {model_id} is not an available model")
+        if model_id not in BasicBedrock.get_supported_models():
+            raise ValueError(f"requested model {model_id} is not an available model in BasicBedrock")
         else:
             model = model_request_mapping.get(model_id)
             _inst = model()
@@ -165,8 +164,8 @@ class BasicBedrock(object):
         :param prompt: the prompt to pass the model.
         :return: a string, representing the equivalent boto3 'body' parameter.
         """
-        if model_id not in self.get_supported_models():
-            raise ValueError(f"requested model {model_id} is not an available model")
+        if model_id not in BasicBedrock.get_supported_models():
+            raise ValueError(f"requested model {model_id} is not an available model in BasicBedrock")
         if not isinstance(prompt, str):
             raise ValueError(f"prompt must be a string, but got {type(prompt)}")
         schema = model_request_mapping.get(model_id)
@@ -188,7 +187,8 @@ class BasicBedrock(object):
         :param show_request: prints the request blob before invoking
         :return: the response to the request, as a subclass of a model.BaseAbstractResponse
         """
-
+        if model_id not in BasicBedrock.get_supported_models():
+            raise ValueError(f"requested model {model_id} is not an available model in BasicBedrock")
         if not isinstance(request, dict) and not isinstance(request, str):
             raise TypeError(f"request must be a string, or a json dict representing the request schema for the model, "
                             f"found: {type(request)}")

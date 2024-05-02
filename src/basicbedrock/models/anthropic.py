@@ -9,6 +9,11 @@ from pydantic import BaseModel
 from baseclasses import BaseAbstractRequest, BaseAbstractResponse
 
 
+ANTHROPIC_CLAUDE_V1V2_CONTEXT_WINDOW = 100_000 - 1
+ANTHROPIC_CLAUDE_V3_CONTEXT_WINDOW = 200_000 - 1
+ANTHROPIC_CLAUDE_MAX_OUTPUT = 4_096
+
+
 class AnthropicClaudeV1V2BaseRequest(BaseAbstractRequest):
     """
     Claude V1 and V2 family models all utilize the same request/response format
@@ -24,7 +29,10 @@ class AnthropicClaudeV1V2BaseRequest(BaseAbstractRequest):
     anthropic_version: str = "bedrock-2023-05-31"
 
     def set_prompt(self, text):
-        prompt = f"\n\nHuman: {text}\n\nAssistant:"
+        prompt = "\n\nHuman: {PROMPT}\n\nAssistant:"
+        padding = len(prompt.replace("{PROMPT}",""))
+        cut_text = text[:ANTHROPIC_CLAUDE_V1V2_CONTEXT_WINDOW-padding]
+        prompt = prompt.format(PROMPT=cut_text)
         self.set_prompt_raw(prompt)
 
     def set_prompt_raw(self, text):
@@ -48,7 +56,7 @@ class AnthropicClaudeV1V2BaseRequest(BaseAbstractRequest):
         self.temperature = temp
 
     def set_max_tokens(self, max_tokens: int):
-        self.max_tokens_to_sample = max_tokens
+        self.max_tokens_to_sample = min(max_tokens, ANTHROPIC_CLAUDE_MAX_OUTPUT)
 
 
 class AnthropicClaudeV1V2BaseResponse(BaseAbstractResponse):
@@ -61,7 +69,6 @@ class AnthropicClaudeV1V2BaseResponse(BaseAbstractResponse):
         return self.result_raw['completion']
 
 
-
 class AntropicClaude3MessageContent(BaseModel):
     """
     Stub class for the Antropic Claude V3 message content field.
@@ -71,11 +78,14 @@ class AntropicClaude3MessageContent(BaseModel):
     text: str = '\n\nHuman: {PROMPT}\n\nAssistant:'
 
     def update_prompt(self, text):
-        text = f'\n\nHuman: {text}\n\nAssistant:'
-        self.update_prompt_raw(text)
+        prompt = "\n\nHuman: {PROMPT}\n\nAssistant:"
+        padding = len(prompt.replace("{PROMPT}",""))
+        cut_text = text[:ANTHROPIC_CLAUDE_V1V2_CONTEXT_WINDOW-padding]
+        prompt = prompt.format(PROMPT=cut_text)
+        self.update_prompt_raw(prompt)
 
     def update_prompt_raw(self, text):
-        self.text = text
+        self.text = text[:ANTHROPIC_CLAUDE_V3_CONTEXT_WINDOW]
 
 
 class AntropicClaude3Message(BaseModel):
@@ -131,7 +141,7 @@ class AnthropicClaude3BaseRequest(BaseAbstractRequest):
         self.temperature = temp
 
     def set_max_tokens(self, max_tokens: int):
-        self.max_tokens = max_tokens
+        self.max_tokens = min(max_tokens, ANTHROPIC_CLAUDE_MAX_OUTPUT)
 
 
 class AnthropicClaude3BaseResponse(BaseAbstractResponse):
@@ -142,5 +152,3 @@ class AnthropicClaude3BaseResponse(BaseAbstractResponse):
 
     def get_answer(self) -> List[float]:
         return self.result_raw['content'][0]['text']
-
-

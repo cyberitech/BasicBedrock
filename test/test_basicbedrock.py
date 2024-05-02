@@ -4,7 +4,8 @@ import json
 import boto3
 
 sys.path.append(os.path.abspath('../src/basicbedrock'))
-from basicbedrock import BasicBedrock
+from basicbedrock import *
+
 
 
 def test_invoke_with_string(bb, verbose=False):
@@ -110,8 +111,31 @@ def test_set_params(bb, verbose=True):
             print(r.get_answer_raw())
 
 
+def test_context_window_limits(bb, verbose=False):
+    for model_id,ctxt in model_request_context_windows.items():
+        if not ctxt:  # embeds have no max
+            continue
+        print(f"now testing {model_id} test_context_window_limits")
+        prompt = "My name is the real slim shady" * ctxt
+        r = bb.invoke(model_id, prompt, show_request=verbose)
+
+
+def test_max_tokens(bb, verbose=False):
+    for model_id,max_token in model_request_max_outputs.items():
+        if not max_token:  # embeds have no max
+            continue
+        print(f"now testing {model_id} test_max_tokens")
+        params = {
+            "max_tokens": max_token,
+        }
+        print(params)
+        prompt = "this is a test"
+        bb.params = params
+        r = bb.invoke(model_id, prompt, show_request=verbose)
+
+
 if __name__ == "__main__":
-    verbose = True
+    verbose = False
     session = boto3.session.Session(profile_name='default')
     bb = BasicBedrock(session=session)
     single_run(bb, verbose)
@@ -122,4 +146,6 @@ if __name__ == "__main__":
     test_invoke_with_valid_json_blob(bb, verbose=verbose)
     test_invoke_with_valid_dict(bb, verbose=verbose)
     test_invoke_with_invalid_dict(bb, verbose=verbose)
+    test_context_window_limits(bb,verbose=verbose)
+    test_max_tokens(bb,verbose=verbose)
     print("All tests successful")
