@@ -14,6 +14,7 @@ import boto3
 import pydantic
 
 from models import *
+from basicbedrock.guardrails.guardrails import Guardrails
 
 
 class BasicBedrock(object):
@@ -27,7 +28,7 @@ class BasicBedrock(object):
         :param kwargs: kwargs used are in the format of {'top_p': float, 'top_k': int, 'temp': float, 'max_tokens': int}
         """
         if not session:
-            warnings.warn('No session provided, attempting to use "default" profile', category=RuntimeWarning)
+            #warnings.warn('No session provided, attempting to use "default" profile', category=RuntimeWarning)
             session = boto3.session.Session()
         self.client = session.client("bedrock-runtime")
         self._default_k = 100
@@ -176,7 +177,7 @@ class BasicBedrock(object):
         return j
 
     def invoke(self, model_id: str, request: typing.Union[str, dict],
-               show_request: bool = False) -> BaseAbstractResponse:
+              show_request: bool = False, guardrail: Guardrails = None) -> BaseAbstractResponse:
         """
         invokes a model_id and returns the response.  Non-streaming only.
         request may by one of: a prompt, a json string represent the request schema, or a dict representing the request schema
@@ -184,6 +185,7 @@ class BasicBedrock(object):
         it will be interpreted as a prompt string and a runtime warning will be raised
         :param model_id: the model id you wish to invoke
         :param request: a string or dict representing either a prompt or a model request schema
+        :param: guardrail: Optional instance of a basicbedrock.guardrails.Guardrails class. If present, it will utilize the guardrail within it.
         :param show_request: prints the request blob before invoking
         :return: the response to the request, as a subclass of a model.BaseAbstractResponse
         """
@@ -195,6 +197,16 @@ class BasicBedrock(object):
         schema_obj: BaseAbstractRequest = model_request_mapping.get(model_id)
         if schema_obj is None:
             raise ValueError(f"requested model {model_id} is not an available model")
+        if guardrail is not None and not isinstance(guardrail, Guardrails):
+            raise ValueError(f"object provided for guardrail parameter is a {type(guardrail)} but expected is a Guardrail or None")
+        if guardrail is not None:
+            if not guardrail.content_configuration and not guardrail.topic_configuration:
+                warnings.warn(f"Empty guardrails provided for invoking model {model_id}, ignoring it")
+                guardrail = None
+            if not guardrail.guardrail_id:
+                warnings.warn(f"Passed a guardrail to invoke() but guardrails not yet installed.  "
+                              f"Installing now (remember to call uninstall_guardrails() afterwards to remove the guardrail from your account")
+                guardrail.install_guardrails()
         schema_inst = None
         if isinstance(request, dict):
             # infer if the request is valid
@@ -229,6 +241,11 @@ class BasicBedrock(object):
             "modelId": model_id,
             "body": body
         }
+        if guardrail is not None:
+            full_request.update({
+                "guardrailIdentifier": guardrail.guardrail_id,
+                "guardrailVersion": guardrail.guardrail_version,
+            })
         if show_request:
             print(json.dumps(full_request))
         r = self.client.invoke_model(**full_request)

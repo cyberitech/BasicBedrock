@@ -69,150 +69,176 @@ class BotoizerBaseModel(BaseModel, extra="forbid", use_enum_values=True):
 
 
 class FilterType(enum.Enum):
-    """
     SEXUAL = 'SEXUAL'
     VIOLENCE = 'VIOLENCE'
     HATE = 'HATE'
     INSULTS = 'INSULTS'
     MISCONDUCT = 'MISCONDUCT'
     PROMPT_ATTACK = 'PROMPT_ATTACK'
-    """
-    SEXUAL = 'SEXUAL'
-    VIOLENCE = 'VIOLENCE'
-    HATE = 'HATE'
-    INSULTS = 'INSULTS'
-    MISCONDUCT = 'MISCONDUCT'
-    PROMPT_ATTACK = 'PROMPT_ATTACK'
+
+    def __init__(self, *args, **kwargs):
+        """
+        SEXUAL = 'SEXUAL'\n
+        VIOLENCE = 'VIOLENCE'\n
+        HATE = 'HATE'\n
+        INSULTS = 'INSULTS'\n
+        MISCONDUCT = 'MISCONDUCT'\n
+        PROMPT_ATTACK = 'PROMPT_ATTACK'\n
+        """
+        super().__init__()
 
 
 class FilterStrength(enum.Enum):
-    """
     LOW = 'LOW'
     MEDIUM = 'MEDIUM'
     HIGH = 'HIGH'
     NONE = 'NONE'
-    """
-    LOW = 'LOW'
-    MEDIUM = 'MEDIUM'
-    HIGH = 'HIGH'
-    NONE = 'NONE'
+
+    def __init__(self, *args, **kwargs):
+        """
+        LOW = 'LOW'\n
+        MEDIUM = 'MEDIUM'\n
+        HIGH = 'HIGH'\n
+        NONE = 'NONE'\n
+        """
+        super().__init__()
 
 
 class Topic(BotoizerBaseModel):
-    """
     name: str
     definition: str
     examples: List[str]
     type: str = "DENY"
-    """
-    name: str
-    definition: str
-    examples: List[str]
-    type: str = "DENY"
+
+    def __init__(self, *args, **kwargs):
+        """
+        name: str\n
+        definition: str\n
+        examples: List[str]\n
+        type: str = "DENY"\n
+        """
+        super().__init__(*args, **kwargs)
 
 
 class TopicPolicyConfig(BotoizerBaseModel):
-    """
     topicsConfig: List[Topic]
-    """
-    topicsConfig: List[Topic]
+
+    def __init__(self, *args, **kwargs):
+        """
+        topicsConfig: List[Topic]\n
+        """
+        super().__init__(*args, **kwargs)
 
 
 class Filter(BotoizerBaseModel):
-    """
     type: FilterType
     inputStrength: FilterStrength
     outputStrength: FilterStrength
-    """
-    type: FilterType
-    inputStrength: FilterStrength
-    outputStrength: FilterStrength
+
+    def __init__(self, *args, **kwargs):
+        """
+        type: FilterType\n
+        inputStrength: FilterStrength\n
+        outputStrength: FilterStrength\n
+        """
+        super().__init__(*args, **kwargs)
 
 
 class ContentPolicyConfig(BotoizerBaseModel):
-    """
     filtersConfig: List[Filter]
-    """
-    filtersConfig: List[Filter]
+
+    def __init__(self, *args, **kwargs):
+        """
+        filtersConfig: List[Filter]\n
+        """
+        super().__init__(*args, **kwargs)
 
 
 class WordConfig(BotoizerBaseModel):
-    """
     text: str
-    """
-    text: str
+
+    def __init__(self, *args, **kwargs):
+        """
+        text: str\n
+        """
+        super().__init__(*args, **kwargs)
 
 
 class ManagedWordListConfig(BotoizerBaseModel):
-    """
-    text: str
-    """
     type: str
+
+    def __init__(self, *args, **kwargs):
+        """
+        text: str\n
+        """
+        super().__init__(*args, **kwargs)
 
 
 class WordPolicyConfig(BotoizerBaseModel):
-    """
     wordsConfig: List[WordConfig]
     managedWordListsConfig: List[ManagedWordListConfig]
-    """
-    wordsConfig: List[WordConfig]
-    managedWordListsConfig: List[ManagedWordListConfig]
+
+    def __init__(self, *args, **kwargs):
+        """
+        wordsConfig: List[WordConfig]\n
+        managedWordListsConfig: List[ManagedWordListConfig]\n
+        """
+        super().__init__(*args, **kwargs)
 
 
 class PiiEntityConfig(BotoizerBaseModel):
-    """
     type: str
     action: str
-    """
-    type: str
-    action: str
+
+    def __init__(self, *args, **kwargs):
+        """
+        type: str\n
+        action: str\n
+        """
+        super().__init__(*args, **kwargs)
 
 
 class RegexConfig(BotoizerBaseModel):
-    """
     name: str
     description: str
     pattern: str
     action: str
-    """
-    name: str
-    description: str
-    pattern: str
-    action: str
+
+    def __init__(self, *args, **kwargs):
+        """
+        name: str\n
+        description: str\n
+        pattern: str\n
+        action: str\n
+        """
+        super().__init__(*args, **kwargs)
 
 
 class SensitiveInformationPolicyConfig(BotoizerBaseModel):
-    """
     piiEntitiesConfig: List[PiiEntityConfig]
     regexesConfig: List[RegexConfig]
-    """
-    piiEntitiesConfig: List[PiiEntityConfig]
-    regexesConfig: List[RegexConfig]
+
+    def __init__(self, *args, **kwargs):
+        """
+        piiEntitiesConfig: List[PiiEntityConfig]\n
+        regexesConfig: List[RegexConfig]\n
+        """
+        super().__init__(*args, **kwargs)
 
 
 class Tag(BotoizerBaseModel):
-    """
     key: str
     value: str
-    """
-    key: str
-    value: str
+
+    def __init__(self, *args, **kwargs):
+        """
+        key: str\n
+        value: str\n
+        """
+        super().__init__(*args, **kwargs)
 
 
 class PolicyConfig(BotoizerBaseModel):
-    """
-    name: str
-    description: str
-    topicPolicyConfig: Optional[TopicPolicyConfig] = None
-    contentPolicyConfig: Optional[ContentPolicyConfig] = None
-    wordPolicyConfig: Optional[WordPolicyConfig] = None
-    sensitiveInformationPolicyConfig: Optional[SensitiveInformationPolicyConfig] = None
-    blockedInputMessaging: str = None
-    blockedOutputsMessaging: str = None
-    kmsKeyId: Optional[str] = None
-    tags: Optional[List[Tag]] = None
-    clientRequestToken: Optional[str] = None
-    """
     name: str
     description: str
     topicPolicyConfig: Optional[TopicPolicyConfig] = None
@@ -231,3 +257,19 @@ class PolicyConfig(BotoizerBaseModel):
             raise ValueError("A guardrail must have at least one policy configured, and you have none. You must "
                              "create at least one topic policy or one content policy")
         return self
+
+    def __init__(self, *args, **kwargs):
+        """
+        name: str\n
+        description: str\n
+        topicPolicyConfig: Optional[TopicPolicyConfig] = None\n
+        contentPolicyConfig: Optional[ContentPolicyConfig] = None\n
+        wordPolicyConfig: Optional[WordPolicyConfig] = None\n
+        sensitiveInformationPolicyConfig: Optional[SensitiveInformationPolicyConfig] = None\n
+        blockedInputMessaging: str = None\n
+        blockedOutputsMessaging: str = None\n
+        kmsKeyId: Optional[str] = None\n
+        tags: Optional[List[Tag]] = None\n
+        clientRequestToken: Optional[str] = None\n
+        """
+        super().__init__(*args, **kwargs)

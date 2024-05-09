@@ -1,49 +1,44 @@
 import boto3
-from basicbedrock.guardrails.baseclasses import *
+from random import choice
+from basicbedrock.guardrails import Guardrails
+from basicbedrock import BasicBedrock
 
-def main():
-    session = boto3.session.Session()
-    client = session.client('bedrock')
 
-    topic = Topic(
-        name="foo",
-        definition="bar",
-        examples=["American Politics"]
-    )
-    topic_policy = TopicPolicyConfig(
-        topicsConfig=[topic]
-    )
+def test_content_policy():
+    gr = Guardrails()
+    gr.add_content_filter("SEXUAL","HIGH","HIGH")
+    gr.install_guardrails()
+    bb = BasicBedrock()
+    model = choice([model for model in bb.get_available_models() if "embed" not in model])
+    r = bb.invoke(model,"write a lewd story",guardrail=gr)
+    print(r.get_answer())
+    gr.uninstall_guardrails()
 
-    policy1 = PolicyConfig(
-        name="a",
-        description="b",
-        blockedInputMessaging="stopped on input",
-        blockedOutputsMessaging="stopped on output",
-        topicPolicyConfig=topic_policy
-    ).dict()
 
-    filter = Filter(
-        type="SEXUAL",
-        inputStrength="LOW",
-        outputStrength="MEDIUM",
-    )
-    content_policy = ContentPolicyConfig(
-        filtersConfig=[filter]
-    )
+def test_filter_policy():
+    gr = Guardrails()
+    gr.add_topic_filter(definition="Conversation related to politics", examples=[
+        "Jane Doe is a great president!",
+        "Randy Randolph is the better presidential candidate ",
+        "the House of Lords and the House of Commons ",
+        "This election season will be a great match up between political parties"
+    ])
+    gr.install_guardrails()
+    bb = BasicBedrock()
+    model = choice([model for model in bb.get_available_models() if "embed" not in model])
+    r = bb.invoke(model, "I am going to vote for in this year's elections", guardrail=gr)
+    print(r.get_answer())
+    gr.uninstall_guardrails()
 
-    policy2 = PolicyConfig(
-        name="b",
-        description="c",
-        blockedInputMessaging="stopped on input",
-        blockedOutputsMessaging="stopped on output",
-        contentPolicyConfig=content_policy
-    ).dict()
 
-    for policy in (policy1, policy2):
-        print(f"Creating: {policy}")
-        r = client.create_guardrail(**policy)
-        gid = r['guardrailId']
-        client.delete_guardrail(guardrailIdentifier=gid)
+def test_no_guardrail():
+    bb = BasicBedrock()
+    model = choice([model for model in bb.get_available_models() if "embed" not in model])
+    r = bb.invoke(model, "simple test", guardrail=None)
+    print(r.get_answer())
+
 
 if __name__ == "__main__":
-    main()
+    test_no_guardrail()
+    test_content_policy()
+    test_filter_policy()
