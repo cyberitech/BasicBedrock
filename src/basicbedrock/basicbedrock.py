@@ -94,13 +94,14 @@ class BasicBedrock(object):
         """
         return sorted(model_request_mapping.keys())
 
+    @staticmethod
     def get_model_schema_dict(self, model_id: str) -> dict:
         """
         returns a dict object representing the request scheme of model_id
         :param model_id:  the chosen model id
         :return: dict object representing the base request scheme of model_id
         """
-        if model_id not in self.get_supported_models():
+        if model_id not in BasicBedrock.get_supported_models():
             raise ValueError(f"requested model {model_id} is not an available model")
         else:
             model = model_request_mapping.get(model_id)
@@ -109,7 +110,8 @@ class BasicBedrock(object):
             d = json.loads(j)
             return d
 
-    def get_model_request_object(self, model_id: str) -> BaseAbstractRequest:
+    @staticmethod
+    def get_model_request_object(model_id: str) -> BaseAbstractRequest:
         """
         returns an instantiated object representing the schema for the chosen model.
         All these inherit from BaseSchemaAbstract.
@@ -122,7 +124,8 @@ class BasicBedrock(object):
         _inst = model_request_mapping.get(model_id)()
         return _inst
 
-    def get_model_request_json(self, model_id: str) -> str:
+    @staticmethod
+    def get_model_request_json(model_id: str) -> str:
         """
         returns a string object representing the request scheme of model_id in json format
         :param model_id:  the chosen model id
@@ -137,7 +140,8 @@ class BasicBedrock(object):
             return j
 
 
-    def print_model_schema(self, model_id: str, indent: int = None) -> None:
+    @staticmethod
+    def print_model_schema(model_id: str, indent: int = None) -> None:
         """
         prints the request scheme of model_id in a pretty format.
         if indent is not None, indent the lines when printing
@@ -155,7 +159,8 @@ class BasicBedrock(object):
                 j = json.dumps(json.loads(j), indent=indent)
         print(j)
 
-    def get_boto3_body(self, model_id: str, prompt: str) -> str:
+    @staticmethod
+    def get_boto3_body(model_id: str, prompt: str) -> str:
         """
         given a model_id and a prompt, this will construct the boto3 'body' parameter using the specified prompt and params,
         but it will not invoke bedrock or pass it to boto3, it will simply return the boto3 'body' param as a string.
