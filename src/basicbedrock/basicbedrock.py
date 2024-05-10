@@ -159,8 +159,7 @@ class BasicBedrock(object):
                 j = json.dumps(json.loads(j), indent=indent)
         print(j)
 
-    @staticmethod
-    def get_boto3_body(model_id: str, prompt: str) -> str:
+    def get_boto3_body(self, model_id: str, prompt: str) -> str:
         """
         given a model_id and a prompt, this will construct the boto3 'body' parameter using the specified prompt and params,
         but it will not invoke bedrock or pass it to boto3, it will simply return the boto3 'body' param as a string.
