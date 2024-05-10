@@ -1,9 +1,8 @@
-from email._header_value_parser import ContentType
-from typing import List, Optional, Union
+from typing import Union
 from uuid import uuid4
 import json
 import boto3
-from .baseclasses import *
+from basicbedrock.guardrails_baseclasses import *
 
 
 class Guardrails:

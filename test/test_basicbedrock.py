@@ -1,11 +1,40 @@
-import sys
-import os
+from random import choice
 import json
 import boto3
 
-sys.path.append(os.path.abspath('../src/basicbedrock'))
 from basicbedrock import *
 
+
+def test_content_policy():
+    gr = Guardrails()
+    gr.add_content_filter("SEXUAL","HIGH","HIGH")
+    gr.install_guardrails()
+    model = choice([model for model in bb.get_available_models() if "embed" not in model])
+    r = bb.invoke(model,"write a lewd story",guardrail=gr)
+    print(r.get_answer())
+    gr.uninstall_guardrails()
+
+
+def test_filter_policy(bb: BasicBedrock):
+    gr = Guardrails()
+    gr.add_topic_filter(definition="Conversation related to politics", examples=[
+        "Jane Doe is a great president!",
+        "Randy Randolph is the better presidential candidate ",
+        "the House of Lords and the House of Commons ",
+        "This election season will be a great match up between political parties"
+    ])
+    gr.install_guardrails()
+    model = choice([model for model in bb.get_available_models() if "embed" not in model])
+    r = bb.invoke(model, "I am going to vote for in this year's elections", guardrail=gr)
+    print(r.get_answer())
+    gr.uninstall_guardrails()
+
+
+def test_no_guardrail(bb: BasicBedrock):
+    bb = BasicBedrock()
+    model = choice([model for model in bb.get_available_models() if "embed" not in model])
+    r = bb.invoke(model, "simple test", guardrail=None)
+    print(r.get_answer())
 
 
 def test_invoke_with_string(bb, verbose=False):
@@ -139,6 +168,9 @@ if __name__ == "__main__":
     session = boto3.session.Session(profile_name='default')
     bb = BasicBedrock(session=session)
     single_run(bb, verbose)
+    test_no_guardrail()
+    test_content_policy()
+    test_filter_policy()
     test_invoke_with_string(bb, verbose=verbose)
     test_get_boto3_body(bb, sess=session, verbose=verbose)
     test_set_params(bb, verbose=verbose)

@@ -14,7 +14,7 @@ import boto3
 import pydantic
 
 from models import *
-from basicbedrock.guardrails.guardrails import Guardrails
+from basicbedrock.guardrails import Guardrails
 
 
 class BasicBedrock(object):
