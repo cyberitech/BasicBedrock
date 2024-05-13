@@ -103,6 +103,9 @@ class AmazonTitanTextG1LiteRequest(AmazonTitanTextV1Request):
     def set_prompt_raw(self, text):
         self.inputText = text
 
+    def get_prompt(self) -> str:
+        return self.inputText
+
 
 class AmazonTitanTextG1ExpressRequest(AmazonTitanTextV1Request):
 
@@ -114,6 +117,9 @@ class AmazonTitanTextG1ExpressRequest(AmazonTitanTextV1Request):
 
     def set_prompt_raw(self, text):
         self.inputText = text
+
+    def get_prompt(self) -> str:
+        return self.inputText
 
 
 class AmazonTitanTextV1Response(BaseAbstractResponse):
@@ -131,6 +137,9 @@ class AmazonTitanEmbedTextV1Request(BaseAbstractRequest):
     This model accepts text and returns a list of floats, representing Amazon Titan embedding vectors.
     """
     inputText: str = "{PROMPT}"
+
+    def get_prompt(self) -> str:
+        return self.inputText
 
     def set_prompt(self, text):
         input_text = "{PROMPT}"

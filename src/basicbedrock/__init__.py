@@ -10,4 +10,4 @@ from .basicbedrock import BasicBedrock
 from .guardrails import Guardrails
 from .models import *
 
-__version__ = '0.2.0'
+__version__ = '0.2.2'

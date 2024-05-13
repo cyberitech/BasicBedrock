@@ -10,6 +10,7 @@ from .baseclasses import BaseAbstractRequest, BaseAbstractResponse
 AI21_JURASSIC2_CONTEXT_WINDOW = 8_000
 AI21_JURASSIC2_MAX_OUTPUT = 8_191
 
+
 class AI21Jurassic2BaseRequest(BaseAbstractRequest):
     """
     AI21 Jurassic 2 request format.
@@ -17,11 +18,15 @@ class AI21Jurassic2BaseRequest(BaseAbstractRequest):
     it does not support top_k
     as of right now there is no BasicBedrock support for penalty parameters
     """
+
     prompt: str = "{PROMPT}"
     maxTokens: int = 250
     temperature: float = 0.5
     topP: float = 0.5
     stopSequences: List = []
+
+    def get_prompt(self) -> str:
+        return self.prompt
 
     def set_prompt(self, text):
         """

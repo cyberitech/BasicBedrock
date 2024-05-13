@@ -28,6 +28,9 @@ class AnthropicClaudeV1V2BaseRequest(BaseAbstractRequest):
     stop_sequences: list = ["\n\nHuman:"]
     anthropic_version: str = "bedrock-2023-05-31"
 
+    def get_prompt(self) -> str:
+        return self.prompt
+
     def set_prompt(self, text):
         prompt = "\n\nHuman: {PROMPT}\n\nAssistant:"
         padding = len(prompt.replace("{PROMPT}",""))
@@ -116,6 +119,9 @@ class AnthropicClaude3BaseRequest(BaseAbstractRequest):
     messages: List[AntropicClaude3Message] = [AntropicClaude3Message()]
     anthropic_version: str = "bedrock-2023-05-31"
     stop_sequences: List[str] = []
+
+    def get_prompt(self) -> str:
+        return self.messages[0].content[0].text
 
     def set_prompt(self, text):
         self.messages[0].update_prompt(text)

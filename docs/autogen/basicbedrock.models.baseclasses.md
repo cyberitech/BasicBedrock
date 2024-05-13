@@ -45,7 +45,11 @@ Returns the set of fields that have been explicitly set on this model instance.
 <a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L26"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `BaseAbstractRequest`
-Abstract base class for all model requests. All model requests must inherit this class. update_prompt and update_promp_raw differ in the fact that some models expect a certain request format to work properly, eg, in certain cases boto3 may reject the request if the prompt does not begin with "Human:"    update_prompt will format all prompts as expected by the model, whereas update_prompt_raw will input text without formatting. The other abstract methods all deal with setting hyperparam values P, K, temp, and max tokens. Additionally, two non abstract methods allow the caller to return the request as a dict or json. 
+Abstract base class for all model requests. All model requests must inherit this class. 
+
+update_prompt and update_promp_raw differ in the fact that some models expect a certain request format to work properly, eg, in certain cases boto3 may reject the request if the prompt does not begin with "Human:"    update_prompt will format all prompts as expected by the model, whereas update_prompt_raw will input text without formatting. The other abstract methods all deal with setting hyperparam values P, K, temp, and max tokens. 
+
+Additionally, two non abstract methods allow the caller to return the request as a dict or json. 
 
 
 ---
@@ -74,7 +78,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L65"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L72"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_dict`
 
@@ -88,7 +92,7 @@ get_dict()
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L69"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L76"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_json`
 
@@ -102,7 +106,19 @@ get_json(indent: int = None)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L101"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L65"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>method</kbd> `get_prompt`
+
+```python
+get_prompt() → str
+```
+
+This retrieves only the current prompt from the model request structure. :return: a str containing the extracted prompt 
+
+---
+
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L108"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_k`
 
@@ -116,7 +132,7 @@ set_k(top_k: int)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L109"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L116"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_max_tokens`
 
@@ -130,7 +146,7 @@ set_max_tokens(max_tokens: int)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L97"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L104"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_p`
 
@@ -144,7 +160,7 @@ set_p(top_p: float)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L77"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L84"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_params`
 
@@ -164,7 +180,11 @@ Sets the hyperparameters of the request (p, k, temp, max_tokens) :param params: 
 set_prompt(text: str)
 ```
 
-Updates the prompt while maintaining its expected internal prompt structure Example, if the prompt must begin with 'Human:' this will be maintained :param text: the prompt you want to use :return: 
+Updates the prompt while maintaining its expected internal prompt structure 
+
+Example, if the prompt must begin with 'Human:' this will be maintained 
+
+:param text: the prompt you want to use :return: 
 
 ---
 
@@ -176,7 +196,11 @@ Updates the prompt while maintaining its expected internal prompt structure Exam
 set_prompt_raw(text: str)
 ```
 
-Updates the prompt without regards to any expected prompt structure. this is used for very precisely modifying prompts. :param text: the exact prompt you want to use :return: 
+Updates the prompt without regards to any expected prompt structure. 
+
+this is used for very precisely modifying prompts. 
+
+:param text: the exact prompt you want to use :return: 
 
 ---
 
@@ -188,11 +212,15 @@ Updates the prompt without regards to any expected prompt structure. this is use
 set_stop_words(stop_words: List[str])
 ```
 
-Sets the stop words used in the model. If the model does not support stop words, this is ignored :param stop_words: the list of strings :return: 
+Sets the stop words used in the model. 
+
+If the model does not support stop words, this is ignored 
+
+:param stop_words: the list of strings :return: 
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L105"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L112"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_temp`
 
@@ -207,12 +235,12 @@ set_temp(temp: float)
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L114"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L121"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `BaseAbstractResponse`
 This is the abstract base model for all model responses. It will internally store the exact result provided by boto3 as a dict. methods are exposed to return to the caller the raw response as dict or json. The abstract method get_answer serves to parse out the actual response and return it, ignoring the associated metadata. 
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L123"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L130"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `__init__`
 
@@ -251,7 +279,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L127"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L134"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_answer`
 
@@ -263,7 +291,7 @@ Returns only the answer to the prompt.  May be a string or a list in the case of
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L140"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L147"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_answer_json`
 
@@ -275,7 +303,7 @@ returns the internal dict answer as a json string :return: json string
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L134"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/baseclasses.py#L141"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_answer_raw`
 

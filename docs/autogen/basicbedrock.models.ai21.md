@@ -5,11 +5,15 @@
 # <kbd>module</kbd> `basicbedrock.models.ai21`
 File containing all of the definitions and implementations for the AI21 (jurassic) family of requests and responses. 
 
+**Global Variables**
+---------------
+- **AI21_JURASSIC2_CONTEXT_WINDOW**
+- **AI21_JURASSIC2_MAX_OUTPUT**
 
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L11"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L14"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `AI21Jurassic2BaseRequest`
 AI21 Jurassic 2 request format. This model supports max_token, temperature and top_p, stop_sequences, count_penalty, presence_penalty and frequncy_penalty it does not support top_k as of right now there is no BasicBedrock support for penalty parameters 
@@ -41,7 +45,21 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L64"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L28"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>method</kbd> `get_prompt`
+
+```python
+get_prompt() → str
+```
+
+
+
+
+
+---
+
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L72"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_k`
 
@@ -53,7 +71,7 @@ This model does not support top_k :param top_k: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L80"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L88"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_max_tokens`
 
@@ -65,7 +83,7 @@ set the maximum tokens parameter. :param max_tokens: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L56"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L64"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_p`
 
@@ -77,7 +95,7 @@ Set the top_p parameter. :param top_p: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L24"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L31"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_prompt`
 
@@ -89,7 +107,7 @@ Update the prompt based on the input text. inserts text according to expected re
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L35"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L43"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_prompt_raw`
 
@@ -101,7 +119,7 @@ Update the prompt based on the input text without regards to expected input form
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L44"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L52"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_stop_words`
 
@@ -113,7 +131,7 @@ AI21 Jurassic 2 stop words allow either an empty list, or a single item of any s
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L72"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L80"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_temp`
 
@@ -126,7 +144,7 @@ set the temperature parameter. :param temp: :return:
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L89"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L97"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `AI21Jurassic2BaseResponse`
 All AI21 Jurassic 2 models use the same response format. 
@@ -158,7 +176,7 @@ Returns the set of fields that have been explicitly set on this model instance.
 
 ---
 
-<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L94"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="https://github.com/cyberitech/BasicBedrock/tree/main/src/basicbedrock/models/ai21.py#L102"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_answer`
 

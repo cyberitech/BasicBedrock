@@ -23,6 +23,9 @@ class MistralBaseRequest(BaseAbstractRequest):
     top_k: int = 125
     stop: typing.List[str] = []
 
+    def get_prompt(self) -> str:
+        return self.prompt
+
     def set_prompt(self, text):
         prompt = "<s>[INST] {PROMPT} [/INST]"
         padding = len(prompt.replace("{PROMPT}",""))

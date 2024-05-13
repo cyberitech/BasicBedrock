@@ -25,19 +25,19 @@ class Hyperparams(BaseModel, extra="forbid"):
 
 class BaseAbstractRequest(BaseModel, extra='forbid'):
     """
-    Abstract base class for all model requests. All model requests must inherit this class.
+    Abstract base class for all model requests. All model requests must inherit this class.\n
     update_prompt and update_promp_raw differ in the fact that some models expect a certain request format to work properly,
     eg, in certain cases boto3 may reject the request if the prompt does not begin with "Human:"\
     update_prompt will format all prompts as expected by the model, whereas update_prompt_raw will input text without formatting.
-    The other abstract methods all deal with setting hyperparam values P, K, temp, and max tokens.
-    Additionally, two non abstract methods allow the caller to return the request as a dict or json.
+    The other abstract methods all deal with setting hyperparam values P, K, temp, and max tokens.\n
+    Additionally, two non abstract methods allow the caller to return the request as a dict or json.\n
     """
 
     @abc.abstractmethod
     def set_prompt(self, text: str):
         """
-        Updates the prompt while maintaining its expected internal prompt structure
-        Example, if the prompt must begin with 'Human:' this will be maintained
+        Updates the prompt while maintaining its expected internal prompt structure\n
+        Example, if the prompt must begin with 'Human:' this will be maintained\n
         :param text: the prompt you want to use
         :return:
         """
@@ -46,8 +46,8 @@ class BaseAbstractRequest(BaseModel, extra='forbid'):
     @abc.abstractmethod
     def set_prompt_raw(self, text: str):
         """
-        Updates the prompt without regards to any expected prompt structure.
-        this is used for very precisely modifying prompts.
+        Updates the prompt without regards to any expected prompt structure.\n
+        this is used for very precisely modifying prompts.\n
         :param text: the exact prompt you want to use
         :return:
         """
@@ -56,10 +56,17 @@ class BaseAbstractRequest(BaseModel, extra='forbid'):
     @abc.abstractmethod
     def set_stop_words(self, stop_words: typing.List[str]):
         """
-        Sets the stop words used in the model.
-        If the model does not support stop words, this is ignored
+        Sets the stop words used in the model.\n
+        If the model does not support stop words, this is ignored\n
         :param stop_words: the list of strings
         :return:
+        """
+
+    @abc.abstractmethod
+    def get_prompt(self) -> str:
+        """
+        This retrieves only the current prompt from the model request structure.
+        :return: a str containing the extracted prompt
         """
 
     def get_dict(self):

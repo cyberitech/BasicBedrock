@@ -22,6 +22,8 @@ class MetaLlamaBaseRequest(BaseAbstractRequest):
     temperature: float = 0.5
     top_p: float = 0.5
 
+    def get_prompt(self) -> str:
+        pass
 
     def set_stop_words(self, stop_words: typing.List[str]):
         """
@@ -85,13 +87,15 @@ class MetaLlamaV2BaseRequest(MetaLlamaBaseRequest):
     """
     prompt: str = "<s>[INST]{PROMPT}[/INST]"
 
+    def get_prompt(self) -> str:
+        return self.prompt
+
     def set_prompt(self, text):
         prompt = "<s>[INST]{PROMPT}[/INST]"
         padding = len(prompt.replace("{PROMPT}",""))
         cut_text = text[:META_LLAMA_V2_CONTEXT_WINDOW-padding]
         prompt = prompt.format(PROMPT=cut_text)
         self.set_prompt_raw(prompt)
-
 
     def set_prompt_raw(self, text):
         """
@@ -102,6 +106,7 @@ class MetaLlamaV2BaseRequest(MetaLlamaBaseRequest):
         """
         self.prompt = text
 
+
 class MetaLlamaV3BaseRequest(MetaLlamaBaseRequest):
     """
     Specifies the expected Llama 2 V1 family chat request format using the expected header format
@@ -111,6 +116,9 @@ class MetaLlamaV3BaseRequest(MetaLlamaBaseRequest):
         '\n'
         '{PROMPT}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n'
     )
+
+    def get_prompt(self) -> str:
+        return self.prompt
 
     def set_prompt(self, text):
         prompt = str(

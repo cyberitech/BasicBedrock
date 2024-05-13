@@ -26,6 +26,9 @@ class CohereCommandTextBaseRequest(BaseAbstractRequest):
     k: int = 125
     stop_sequences: List[str] = []
 
+    def get_prompt(self) -> str:
+        return self.prompt
+
     def set_prompt(self, text):
         input_text = "{PROMPT}"
         input_text = input_text.format(PROMPT=text)
@@ -77,6 +80,9 @@ class CohereEmbedBaseRequest(BaseAbstractRequest):
     """
     texts: List[str] = ["{PROMPT}"]
     input_type: str = "search_document"
+
+    def get_prompt(self) -> str:
+        return self.texts[0]
 
     def set_prompt(self, text):
         input_text = "{PROMPT}"
@@ -130,3 +136,49 @@ class CohereEmbedBaseResponse(BaseAbstractResponse):
 
     def get_answer(self) -> List[float]:
         return self.result_raw['embeddings'][0]
+
+
+class CohereCommandRPLUSTextBaseRequest(BaseAbstractRequest):
+
+    message: str = "{PROMPT}"
+    max_tokens: int = 250
+    temperature: float = 0.5
+    p: float = 0.5
+    k: int = 125
+    stop_sequences: List[str] = []
+
+    def set_prompt(self, text: str):
+        input_text = "{PROMPT}"
+        input_text = input_text.format(PROMPT=text)
+        input_text = input_text[:COHERE_COMMAND_R_RPLUS_CONTEXT_WINDOW]
+        self.set_prompt_raw(input_text)
+
+    def set_prompt_raw(self, text: str):
+        self.message = text
+
+    def set_stop_words(self, stop_words: typing.List[str]):
+        self.stop_sequences = stop_words
+
+    def get_prompt(self) -> str:
+        return self.message
+
+    def set_p(self, top_p: float):
+        self.p = top_p
+
+    def set_k(self, top_k: int):
+        self.k=top_k
+
+    def set_temp(self, temp: float):
+        self.temperature = temp
+
+    def set_max_tokens(self, max_tokens: int):
+        self.max_tokens = min(max_tokens, COHERE_COMMAND_TEXT_MAX_OUTPUT)
+
+
+class CohereCommandRPLUSTextBaseResponse(BaseAbstractResponse):
+    """
+    this is the base response format used by all text-family cohere models
+    """
+
+    def get_answer(self) -> str:
+        return self.result_raw['text']
