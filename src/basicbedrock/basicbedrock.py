@@ -18,19 +18,22 @@ from basicbedrock.guardrails import Guardrails
 
 
 class BasicBedrock(object):
-    def __init__(self, session: boto3.session.Session = None, **kwargs):
+    def __init__(self, session: boto3.session.Session = None, verify = True,
+                **kwargs):
         """
         Creates an instance of basic bedrock.
         session param is optional.  If omitted, a default session constructor will be used.
         Right now, the only kwargs supported are a param dictionary.
         Param dicts are in the format of {'top_p': float, 'top_k': int, 'temp': float, 'max_tokens': int}
         :param session: the boto3 session to use for creating the basic bedrock instance
+        :param verify: whether to verify TLS connections in the boto3 client (default: true)
         :param kwargs: kwargs used are in the format of {'top_p': float, 'top_k': int, 'temp': float, 'max_tokens': int}
         """
+        self.verify = verify
         if not session:
             #warnings.warn('No session provided, attempting to use "default" profile', category=RuntimeWarning)
             session = boto3.session.Session()
-        self.client = session.client("bedrock-runtime")
+        self.client = session.client("bedrock-runtime", verify=self.verify)
         self._default_k = 100
         self._default_p = .5
         self._default_t = .5
@@ -47,7 +50,7 @@ class BasicBedrock(object):
             self.set_params(kwargs)
 
         # We need to know what models are enabled in the aws account for this region
-        _bedrock_cp = session.client("bedrock")
+        _bedrock_cp = session.client("bedrock", verify=self.verify)
         r = _bedrock_cp.list_foundation_models()
         self.enabled_models = [
             e.get('modelId') for e in r['modelSummaries'] if e.get('modelLifecycle').get('status') == 'ACTIVE'
